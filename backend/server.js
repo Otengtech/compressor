@@ -1,13 +1,20 @@
 import express from "express";
 import cors from "cors";
 import fs from "fs";
+import dontenv from "dotenv";
 import path from "path";
+dontenv.config()
 
 const app = express();
 const PORT = 5000;
-app.use(cors())
+const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
 
-// Get directory path safely in ES modules
+app.use(cors({
+  origin: clientUrl,
+  credentials: true,
+}));
+
+// Get directory of the content.json file
 const __dirname = path.resolve();
 
 app.get("/api/content", (req, res) => {
