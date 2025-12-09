@@ -6,9 +6,8 @@ export default function ContentProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const apiUrl = process.env.REACT_APP_API_URL;
-    
-    // fetching data
+    const apiUrl = import.meta.env.VITE_API_URL;
+
     fetch(apiUrl)
       .then(res => res.json())
       .then(data => {

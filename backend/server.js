@@ -7,7 +7,7 @@ dontenv.config()
 
 const app = express();
 const PORT = 5000;
-const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
+const clientUrl = process.env.CLIENT_URL;
 
 app.use(cors({
   origin: clientUrl,
