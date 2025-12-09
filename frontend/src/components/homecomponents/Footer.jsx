@@ -1,0 +1,123 @@
+import React, { useState } from "react";
+import { 
+  Mail, 
+  ArrowRight, 
+  Facebook, 
+  Twitter, 
+  Instagram,
+  Shield,
+  Truck,
+  CheckCircle
+} from "lucide-react";
+
+const Footer = () => {
+  const [email, setEmail] = useState("");
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-black text-white">
+      <div className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+
+          {/* Main Footer */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+            
+            {/* Brand */}
+            <div className="lg:col-span-2">
+              <h2 className="text-3xl font-bold mb-4">
+                Poultry<span className="text-green-500">Farm</span>
+              </h2>
+              <p className="text-gray-400 mb-6 max-w-md">
+                Providing premium poultry products with unmatched quality and service since 1985.
+              </p>
+              
+              {/* Trust Badges */}
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center text-sm text-gray-400">
+                  <Shield className="w-4 h-4 text-green-400 mr-2" />
+                  Certified Quality
+                </div>
+                <div className="flex items-center text-sm text-gray-400">
+                  <Truck className="w-4 h-4 text-green-400 mr-2" />
+                  Fast Delivery
+                </div>
+                <div className="flex items-center text-sm text-gray-400">
+                  <CheckCircle className="w-4 h-4 text-green-400 mr-2" />
+                  98% Satisfaction
+                </div>
+              </div>
+            </div>
+
+            {/* Links Columns */}
+            {[
+              {
+                title: "Company",
+                links: ['About Us', 'Our Team', 'Careers', 'Press', 'Blog']
+              },
+              {
+                title: "Products",
+                links: ['Fresh Eggs', 'Live Birds', 'Poultry Feed', 'Equipment', 'Accessories']
+              },
+              {
+                title: "Support",
+                links: ['FAQ', 'Shipping', 'Returns', 'Contact', 'Farm Guide']
+              }
+            ].map((column, idx) => (
+              <div key={idx}>
+                <h4 className="font-bold text-lg mb-6">{column.title}</h4>
+                <ul className="space-y-3">
+                  {column.links.map((link, linkIdx) => (
+                    <li key={linkIdx}>
+                      <a 
+                        href="#" 
+                        className="text-gray-400 hover:text-green-400 transition-colors"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="border-t border-gray-800 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              
+              <div className="text-gray-500 text-sm mb-4 md:mb-0">
+                © {currentYear} PoultryFarm. All rights reserved.
+              </div>
+              
+              {/* Social Media */}
+              <div className="flex space-x-4 mb-4 md:mb-0">
+                <a href="#" className="text-gray-400 hover:text-[#f4b63c] transition-colors">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-[#f4b63c] transition-colors">
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-[#f4b63c] transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
+              
+              {/* Legal */}
+              <div className="flex space-x-6 text-sm text-gray-500">
+                <a href="#" className="hover:text-[#f4b63c] transition-colors">Privacy</a>
+                <a href="#" className="hover:text-[#f4b63c] transition-colors">Terms</a>
+                <a href="#" className="hover:text-[#f4b63c] transition-colors">Cookies</a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
