@@ -9,6 +9,7 @@ import {
   MessageCircle,
   Eye
 } from "lucide-react";
+import Footer from "../components/homecomponents/Footer"
 
 const BlogCarouselSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -70,25 +71,21 @@ const BlogCarouselSection = () => {
         ></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-16">
         
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center space-x-2 text-gray-500 uppercase tracking-wider text-sm font-semibold mb-4">
-            <BookOpen className="w-4 h-4 text-[#f4b63c]" />
+            <BookOpen className="w-4 h-4 text-green-400" />
             <span>Latest From Our Blog</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-none mb-4">
-            Farm
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">
-              Knowledge Hub
+          <h1 className="text-4xl sm:text-5xl flex justify-center lg:text-6xl font-black text-gray-900 leading-none mb-4">
+            Our
+            <span className="text-transparent ml-3 bg-clip-text bg-gradient-to-r from-green-500 to-green-500">
+              Blog
             </span>
           </h1>
-
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Expert insights and practical guides to help you succeed in poultry farming.
-          </p>
         </div>
 
         {/* Carousel */}
@@ -169,7 +166,7 @@ const BlogCarouselSection = () => {
                 onClick={() => setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full ${
                   index === currentIndex 
-                    ? "bg-[#f4b63c]" 
+                    ? "bg-green-400" 
                     : "bg-gray-300"
                 }`}
               />
@@ -208,7 +205,7 @@ const BlogCarouselSection = () => {
                   
                   <div className="flex items-center justify-between text-sm text-gray-500">
                     <span>{post.date}</span>
-                    <button className="flex items-center text-[#f4b63c] font-semibold">
+                    <button className="flex items-center text-green-400 font-semibold">
                       Read
                       <ArrowRight className="ml-1 w-4 h-4" />
                     </button>
@@ -220,6 +217,7 @@ const BlogCarouselSection = () => {
         </div>
 
       </div>
+      <Footer />
     </section>
   );
 };

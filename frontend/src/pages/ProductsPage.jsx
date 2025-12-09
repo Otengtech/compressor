@@ -271,6 +271,7 @@ const ProductsSection = () => {
       {/* Products Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+          
           {/* Filters & Search Bar */}
           <div className="mb-12">
             <div className="bg-white rounded-2xl p-6">
