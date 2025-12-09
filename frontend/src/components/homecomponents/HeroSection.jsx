@@ -84,7 +84,7 @@ const HeroSection = () => {
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-none"
+                className="text-6xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-none"
               >
                 {titles[currentTitleIndex].main}
                 <span className="block text-transparent bg-clip-text bg-white">

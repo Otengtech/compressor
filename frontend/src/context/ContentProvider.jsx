@@ -5,20 +5,25 @@ export default function ContentProvider({ children }) {
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const apiUrl = import.meta.env.VITE_API_URL;
+  // Always fetch from your backend proxy
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000/api/content";
 
-    fetch(apiUrl)
-      .then(res => res.json())
-      .then(data => {
+  useEffect(() => {
+    const fetchContent = async () => {
+      try {
+        const res = await fetch(apiUrl);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        const data = await res.json();
         setContent(data);
-        setLoading(false);
-      })
-      .catch(err => {
+      } catch (err) {
         console.error("Error loading content:", err);
+      } finally {
         setLoading(false);
-      });
-  }, []);
+      }
+    };
+
+    fetchContent();
+  }, [apiUrl]);
 
   return (
     <ContentContext.Provider value={{ content, loading }}>

@@ -33,7 +33,7 @@ const ResponsiveNavbar = () => {
             <Link to="/"
               className="ml-2 lg:ml-0 text-xl font-bold text-green-400 transition-colors"
             >
-              PoultryFarm
+              Farm
             </Link>
           </div>
           <div className="flex items-center justify-center">
@@ -75,15 +75,15 @@ const ResponsiveNavbar = () => {
           <div className="lg:hidden bg-green-100 border-t">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.href}
                   onClick={() => setIsMenuOpen(false)}
                   className="block text-gray-700 hover:text-green-400 hover:bg-gray-50 
                              px-3 py-2 rounded-md text-base font-medium transition"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
