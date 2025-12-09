@@ -7,7 +7,8 @@ export default function ContentProvider({ children }) {
 
   useEffect(() => {
     const apiUrl = process.env.REACT_APP_API_URL;
-
+    
+    // fetching data
     fetch(apiUrl)
       .then(res => res.json())
       .then(data => {
