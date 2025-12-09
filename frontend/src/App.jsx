@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import ContentProvider from "./context/ContentProvider";
+import { ContentContext } from "./context/ContentContext";
+import { useContext } from "react";
 import Home from "./pages/HomePage";
 import Navbar from "./components/Navbar";
 import ProductsPage from "./pages/ProductsPage";
@@ -9,17 +11,21 @@ import BlogPage from "./pages/BlogPage";
 import Loader from "./components/Loader";
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <Router>
-      <Navbar />
+      <ContentProvider>
+        <AppContent />
+      </ContentProvider>
+    </Router>
+  );
+}
 
+function AppContent() {
+  const { loading } = useContext(ContentContext);
+
+  return (
+    <>
+      <Navbar />
       {loading ? (
         <Loader />
       ) : (
@@ -31,8 +37,8 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
         </Routes>
       )}
-    </Router>
+    </>
   );
 }
 
-export default App
+export default App;

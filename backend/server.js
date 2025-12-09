@@ -1,9 +1,11 @@
 import express from "express";
+import cors from "cors";
 import fs from "fs";
 import path from "path";
 
 const app = express();
 const PORT = 5000;
+app.use(cors())
 
 // Get directory path safely in ES modules
 const __dirname = path.resolve();
