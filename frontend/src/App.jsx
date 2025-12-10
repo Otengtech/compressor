@@ -26,7 +26,7 @@ function AppContent() {
 
   return (
     <>
-    <ScrollToTop>
+    <ScrollToTop/>
       <Navbar />
       {loading ? (
         <Loader />
@@ -39,7 +39,6 @@ function AppContent() {
           <Route path="/blog" element={<BlogPage />} />
         </Routes>
       )}
-      </ScrollToTop>
     </>
   );
 }
