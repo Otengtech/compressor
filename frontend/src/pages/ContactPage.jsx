@@ -86,17 +86,17 @@ const ContactPage = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-8 bg-lime-100">
+      <section className="py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 lg:px-20">
           <div className="grid lg:grid-cols-2 gap-8">
             
             {/* Contact Form */}
             <div>
               <div className="bg-white rounded-3xl shadow-2xl p-8 border border-lime-200">
-                <h2 className="text-3xl font-bold text-lime-400 mb-2">
+                <h2 className="text-3xl font-bold text-gray-800 mb-2">
                   Send us a Message
                 </h2>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-700 mb-6">
                   Fill out the form below and we'll get back to you within 24 hours
                 </p>
                 
@@ -125,7 +125,7 @@ const ContactPage = () => {
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            className="w-full pl-12 pr-4 py-3 rounded-xl border border-lime-200 focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all"
+                            className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all"
                             placeholder="John Farmer"
                           />
                         </div>
@@ -142,7 +142,7 @@ const ContactPage = () => {
                             value={formData.email}
                             onChange={handleChange}
                             required
-                            className="w-full pl-12 pr-4 py-3 rounded-xl border border-lime-200 focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all"
+                            className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all"
                             placeholder="john@example.com"
                           />
                         </div>
@@ -161,7 +161,7 @@ const ContactPage = () => {
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            className="w-full pl-12 pr-4 py-3 rounded-xl border border-lime-200 focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all"
+                            className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all"
                             placeholder="+1 (555) 123-4567"
                           />
                         </div>
@@ -177,14 +177,14 @@ const ContactPage = () => {
                         onChange={handleChange}
                         required
                         rows="6"
-                        className="w-full px-4 py-3 rounded-xl border border-lime-200 focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all"
                         placeholder="Tell us how we can help you..."
                       ></textarea>
                     </div>
 
                     <button
                       type="submit"
-                      className="group w-full bg-gradient-to-r from-lime-400 to-lime-500 text-white py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center"
+                      className="group w-full bg-gradient-to-r from-lime-400 to-lime-500 text-gray-700 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center"
                     >
                       <span className="flex items-center gap-2">
                         Send Message
@@ -205,7 +205,7 @@ const ContactPage = () => {
                 </h3>
                 
                 <div className="space-y-6">
-                  <div className="flex items-start p-4 bg-lime-50 rounded-xl">
+                  <div className="flex items-start p-4 bg-white rounded-xl">
                     <MapPin className="w-6 h-6 text-lime-400 mr-3 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Address</h4>
@@ -229,7 +229,7 @@ const ContactPage = () => {
                 </div>
 
                 {/* Map Preview */}
-                <div className="mt-8 rounded-2xl overflow-hidden h-48 bg-gradient-to-r from-lime-100 to-emerald-100 relative border border-lime-200">
+                <div className="mt-8 rounded-2xl overflow-hidden h-48 bg-gradient-to-r from-white relative border border-gray-400">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
                       <MapPin className="w-10 h-10 text-lime-400 mx-auto mb-3 animate-bounce" />
@@ -244,20 +244,20 @@ const ContactPage = () => {
               </div>
 
               {/* Social Media */}
-              <div className="bg-gradient-to-r from-lime-400 to-lime-500 rounded-3xl p-6 text-center">
-                <h3 className="text-xl font-bold text-white mb-4">Follow Us</h3>
+              <div className="bg-lime-100 rounded-3xl p-6 text-center">
+                <h3 className="text-xl font-bold text-gray-700 mb-4">Follow Us</h3>
                 <div className="flex justify-center gap-4">
                   <a href="#" className="p-3 bg-white/20 rounded-full hover:bg-white/30 transition-all">
-                    <Facebook className="w-6 h-6 text-white" />
+                    <Facebook className="w-6 h-6 text-gray-700" />
                   </a>
                   <a href="#" className="p-3 bg-white/20 rounded-full hover:bg-white/30 transition-all">
-                    <Twitter className="w-6 h-6 text-white" />
+                    <Twitter className="w-6 h-6 text-gray-700" />
                   </a>
                   <a href="#" className="p-3 bg-white/20 rounded-full hover:bg-white/30 transition-all">
-                    <Instagram className="w-6 h-6 text-white" />
+                    <Instagram className="w-6 h-6 text-gray-700" />
                   </a>
                   <a href="#" className="p-3 bg-white/20 rounded-full hover:bg-white/30 transition-all">
-                    <Linkedin className="w-6 h-6 text-white" />
+                    <Linkedin className="w-6 h-6 text-gray-700" />
                   </a>
                 </div>
               </div>
