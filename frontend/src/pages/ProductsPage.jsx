@@ -57,15 +57,6 @@ const ProductsSection = () => {
     },
   ];
 
-  const features = [
-    { id: "organic", label: "Organic" },
-    { id: "free_range", label: "Free Range" },
-    { id: "vaccinated", label: "Vaccinated" },
-    { id: "hormone_free", label: "Hormone Free" },
-    { id: "local", label: "Local Farm" },
-    { id: "fresh", label: "Daily Fresh" },
-  ];
-
   const products = [
     {
       id: 1,
@@ -250,14 +241,6 @@ const ProductsSection = () => {
     setFilteredProducts(filtered);
   }, [activeCategory, products, searchQuery, priceRange, selectedFeatures, sortBy]);
 
-  const handleFeatureToggle = (featureId) => {
-    setSelectedFeatures((prev) =>
-      prev.includes(featureId)
-        ? prev.filter((id) => id !== featureId)
-        : [...prev, featureId]
-    );
-  };
-
   const handleViewProduct = (productId) => {
     if (!viewedProducts.includes(productId)) {
       setViewedProducts([...viewedProducts, productId]);
@@ -272,319 +255,113 @@ const ProductsSection = () => {
     setSortBy("featured");
   };
 
-  return (
-    <div className="min-h-screen">
-      {/* Banner Section */}
-      <div
-        className="relative w-full h-96 lg:h-[500px] bg-cover bg-center"
-        style={{ backgroundImage: `url(${data.banner1})` }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <h1 className="text-5xl lg:text-7xl font-bold text-center text-white">
-            SERVICES PAGE
-          </h1>
-        </div>
+  // Simple and compact product filter component
+return (
+  <div className="min-h-screen">
+    {/* Banner Section */}
+    <div
+      className="relative w-full h-64 sm:h-80 md:h-96 bg-cover bg-center"
+      style={{ backgroundImage: `url(${data.banner1})` }}
+    >
+      <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <h1 className="text-3xl sm:text-5xl font-bold text-white text-center">
+          SERVICES PAGE
+        </h1>
       </div>
-      {/* Products Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
-          
-          {/* Filters & Search Bar */}
-          <div className="mb-12">
-            <div className="bg-white rounded-2xl p-6">
-              <div className="flex flex-col lg:flex-row gap-6">
-                {/* Search */}
-                <div className="flex-1">
-                  <div className="relative">
-                    <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                    <input
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Search products by name or description..."
-                      className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#f4b63c] focus:border-transparent"
-                    />
-                  </div>
-                </div>
+    </div>
 
-                {/* Sort By */}
-                <div className="flex items-center gap-4">
-                  <span className="text-gray-600">Sort by:</span>
-                  <select
-                    value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value)}
-                    className="px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#f4b63c]"
-                  >
-                    <option value="featured">Featured</option>
-                    <option value="popular">Most Popular</option>
-                    <option value="price_low">Price: Low to High</option>
-                    <option value="price_high">Price: High to Low</option>
-                    <option value="rating">Highest Rated</option>
-                  </select>
-                </div>
+    {/* Products Section */}
+    <section className="py-8 px-4 sm:px-6 lg:px-16">
+      <div className="max-w-7xl mx-auto">
 
-                {/* Reset Filters */}
+        {/* Filters Bar */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
+          {/* Category */}
+          <select
+            value={activeCategory}
+            onChange={(e) => setActiveCategory(e.target.value)}
+            className="flex-1 px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-green-400"
+          >
+            <option value="all">All Categories</option>
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.id}>{cat.name}</option>
+            ))}
+          </select>
+
+          {/* Search */}
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search products..."
+            className="flex-1 px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-green-400"
+          />
+
+          {/* Sort */}
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-green-400"
+          >
+            <option value="featured">Featured</option>
+            <option value="popular">Most Popular</option>
+            <option value="price_low">Price: Low to High</option>
+            <option value="price_high">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+
+          {/* Reset */}
+          <button
+            onClick={resetFilters}
+            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-600"
+          >
+            Reset
+          </button>
+        </div>
+
+        {/* Products Grid */}
+        {filteredProducts.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {filteredProducts.map((product) => (
+              <div key={product.id} className="bg-white rounded-xl shadow p-4 flex flex-col">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-40 object-cover rounded-lg mb-2"
+                />
+                <h3 className="font-bold text-gray-900 mb-1">{product.name}</h3>
+                <p className="text-gray-600 text-sm mb-2 line-clamp-2">{product.description}</p>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="font-semibold text-green-600">${product.price.toFixed(2)}</span>
+                  {viewedProducts.includes(product.id) && (
+                    <span className="text-xs text-green-400">Viewed</span>
+                  )}
+                </div>
                 <button
-                  onClick={resetFilters}
-                  className="px-4 py-2 text-gray-600 hover:text-green-400 transition-colors flex items-center"
+                  onClick={() => handleViewProduct(product.id)}
+                  className="bg-green-500 hover:bg-green-400 text-white py-2 rounded-full text-sm"
                 >
-                  <X className="w-4 h-4 mr-2" />
-                  Reset Filters
+                  View Details
                 </button>
               </div>
-
-              {/* Category Filter */}
-              <div className="mt-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <Filter className="w-5 h-5 text-gray-400" />
-                  <span className="font-medium">Categories</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {categories.map((category) => (
-                    <button
-                      key={category.id}
-                      onClick={() => setActiveCategory(category.id)}
-                      className={`px-4 py-2 rounded-full transition-all ${
-                        activeCategory === category.id
-                          ? "bg-green-400 text-white"
-                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                      }`}
-                    >
-                      <span className="flex items-center gap-2">
-                        {category.icon}
-                        {category.name}
-                        <span className="text-sm opacity-90">
-                          ({category.count})
-                        </span>
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Features Filter */}
-              <div className="mt-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <Shield className="w-5 h-5 text-gray-400" />
-                  <span className="font-medium">Features</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {features.map((feature) => (
-                    <button
-                      key={feature.id}
-                      onClick={() => handleFeatureToggle(feature.id)}
-                      className={`px-4 py-2 rounded-full transition-all flex items-center gap-2 ${
-                        selectedFeatures.includes(feature.id)
-                          ? "bg-amber-100 text-green-800 border border-green-300"
-                          : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                      }`}
-                    >
-                      {selectedFeatures.includes(feature.id) && (
-                        <Check className="w-4 h-4" />
-                      )}
-                      {feature.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Price Range */}
-              <div className="mt-6">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-medium">Price Range</span>
-                  <span className="text-green-400 font-semibold">
-                    ${priceRange[0]} - ${priceRange[1]}
-                  </span>
-                </div>
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={priceRange[1]}
-                  onChange={(e) =>
-                    setPriceRange([priceRange[0], parseInt(e.target.value)])
-                  }
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#f4b63c]"
-                />
-              </div>
-            </div>
+            ))}
           </div>
-
-          {/* Results Summary */}
-          <div className="mb-8">
-            <div className="flex justify-between items-center">
-              <h2 className="text-2xl font-bold text-gray-900">
-                {filteredProducts.length} Products Found
-              </h2>
-              {viewedProducts.length > 0 && (
-                <div className="text-sm text-gray-600">
-                  Viewed: {viewedProducts.length} products
-                </div>
-              )}
-            </div>
+        ) : (
+          <div className="text-center py-16">
+            <p className="text-gray-400 mb-4">No products found matching your criteria</p>
+            <button
+              onClick={resetFilters}
+              className="px-6 py-3 bg-green-400 text-white rounded-lg hover:bg-green-500 transition"
+            >
+              Reset Filters
+            </button>
           </div>
+        )}
+      </div>
+    </section>
+  </div>
+);
 
-          {/* Products Grid */}
-          {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredProducts.map((product) => (
-                <div
-                  key={product.id}
-                  className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100"
-                >
-                  {/* Product Image */}
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-
-                    {/* Popular Badge */}
-                    {product.popular && (
-                      <div className="absolute top-3 left-3 bg-green-400 text-green-800 px-3 py-1 rounded-full text-xs font-semibold">
-                        Popular
-                      </div>
-                    )}
-
-                    {/* Stock Status */}
-                    <div
-                      className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold ${
-                        product.stock === "In Stock"
-                          ? "bg-green-100 text-green-800"
-                          : product.stock === "Limited"
-                          ? "bg-amber-100 text-green-800"
-                          : "bg-red-100 text-red-800"
-                      }`}
-                    >
-                      {product.stock}
-                    </div>
-                  </div>
-
-                  {/* Product Info */}
-                  <div className="p-5">
-                    {/* Category */}
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        {product.category === "eggs" && "Fresh Eggs"}
-                        {product.category === "birds" && "Live Birds"}
-                        {product.category === "meat" && "Poultry Meat"}
-                      </span>
-                      <div className="flex items-center">
-                        <Star className="w-4 h-4 fill-[#f4b63c] text-[#f4b63c]" />
-                        <span className="ml-1 text-sm font-medium">
-                          {product.rating}
-                        </span>
-                        <span className="ml-1 text-xs text-gray-500">
-                          ({product.reviews})
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Name & Price */}
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">
-                      {product.name}
-                    </h3>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="text-2xl font-bold text-gray-900">
-                        ${product.price.toFixed(2)}
-                      </span>
-                      {viewedProducts.includes(product.id) && (
-                        <span className="text-xs text-[#f4b63c] font-medium flex items-center">
-                          <Eye className="w-3 h-3 mr-1" />
-                          Viewed
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                      {product.description}
-                    </p>
-
-                    {/* Features */}
-                    {/* <div className="mb-4">
-                      <div className="flex flex-wrap gap-2">
-                        {product.features.map((feature) => (
-                          <span
-                            key={feature}
-                            className="px-2 py-1 text-xs bg-amber-50 text-amber-700 rounded-full"
-                          >
-                            {features.find((f) => f.id === feature)?.label}
-                          </span>
-                        ))}
-                      </div>
-                    </div> */}
-
-                    {/* Delivery Info */}
-                    {/* <div className="flex items-center text-sm text-gray-500 mb-4">
-                      <Truck className="w-4 h-4 mr-2 text-[#f4b63c]" />
-                      <span>{product.delivery}</span>
-                    </div> */}
-
-                    {/* Action Buttons */}
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => handleViewProduct(product.id)}
-                        className="flex-1 bg-green-500 hover:bg-green-400 text-white py-2 rounded-full font-medium transition-colors flex items-center justify-center"
-                      >
-                        <Eye className="w-4 h-4 mr-2" />
-                        View Details
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-16">
-              <div className="text-gray-400 mb-4">
-                No products found matching your criteria
-              </div>
-              <button
-                onClick={resetFilters}
-                className="px-6 py-3 bg-green-400 text-white rounded-lg font-medium hover:bg-[#e0a533] transition-colors"
-              >
-                Reset All Filters
-              </button>
-            </div>
-          )}
-
-          {/* Category Highlights */}
-          <div className="mt-16">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-              Browse By Category
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {categories.slice(1).map((category) => (
-                <div
-                  key={category.id}
-                  className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-green-100 to-green-100 p-8 cursor-pointer"
-                  onClick={() => setActiveCategory(category.id)}
-                >
-                  <div className="relative z-10">
-                    <div className="inline-flex p-4 rounded-2xl bg-white mb-6">
-                      {category.icon}
-                    </div>
-                    <h4 className="text-2xl font-bold text-gray-900 mb-2">
-                      {category.name}
-                    </h4>
-                    <p className="text-gray-600 mb-4">
-                      {category.count} premium products available
-                    </p>
-                    <button className="flex items-center text-green-400 font-semibold">
-                      Browse Collection
-                      <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" />
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
 };
 
-export default ProductsSection;
+export default ProductsSection; 

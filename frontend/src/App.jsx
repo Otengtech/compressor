@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import ContentProvider from "./context/ContentProvider";
 import { ContentContext } from "./context/ContentContext";
 import { useContext } from "react";
@@ -26,7 +26,7 @@ function AppContent() {
 
   return (
     <>
-    <ScrollToTop/>
+      <ScrollToTop />
       <Navbar />
       {loading ? (
         <Loader />

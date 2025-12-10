@@ -39,27 +39,27 @@
     },
     "productsSection": {
         "title": "Our Services",
-        "banner1": "../../assets/banner1.jpg",
-            "products": [
-                {
-                    "id": 1,
-                    "name": "The Best Poultry",
-                    "icon": "../assets/poultry.jpg",
-                    "text": "Fresh and healthy poultry raised on trusted farms, ensuring top quality for your meals."
-                },
-                {
-                    "id": 2,
-                    "name": "Chick Quality",
-                    "icon": "../assets/chick.jpg",
-                    "text": "Healthy, strong chicks ideal for farmers and hatcheries, sourced from reliable breeders."
-                },
-                {
-                    "id": 3,
-                    "name": "Pasteurized Egg",
-                    "icon": "../assets/eggs.jpg",
-                    "text": "Safe and hygienically pasteurized eggs, retaining all nutrients and natural flavor."
-                }
-            ]
+            "banner1": "../../assets/banner1.jpg",
+                "products": [
+                    {
+                        "id": 1,
+                        "name": "The Best Poultry",
+                        "icon": "../assets/poultry.jpg",
+                        "text": "Fresh and healthy poultry raised on trusted farms, ensuring top quality for your meals."
+                    },
+                    {
+                        "id": 2,
+                        "name": "Chick Quality",
+                        "icon": "../assets/chick.jpg",
+                        "text": "Healthy, strong chicks ideal for farmers and hatcheries, sourced from reliable breeders."
+                    },
+                    {
+                        "id": 3,
+                        "name": "Pasteurized Egg",
+                        "icon": "../assets/eggs.jpg",
+                        "text": "Safe and hygienically pasteurized eggs, retaining all nutrients and natural flavor."
+                    }
+                ]
     },
     "testimonialSection": {
         "title": "What They’re Saying",
@@ -116,7 +116,6 @@
                     }
                 ]
     },
-
     "ourteamSection": {
         "title": "Meet Our Team",
             "text": "Our team works really hard to keep this wonderful company going to produce and meet consumers' needs.",
@@ -141,7 +140,7 @@
                         "id": "3",
                         "image": "../../assets/team3.jpg",
                         "socials": ["whatsapp", "twitter", "linkedin"],
-                        "name": "Miguel Rodriguez",
+                        "name": "Miguel Kean",
                         "position": "Harvest Manager",
                         "description": "Oversees harvesting operations ensuring quality and efficiency across all farms."
                     },
@@ -154,6 +153,12 @@
                         "description": "Implements eco-friendly practices and manages our green certification programs."
                     }
                 ]
+    },
+    "newsletterSection": {
+        "title": "Stay Updated with Our Latest Insights",
+            "description": "Subscribe to our newsletter to receive the latest farming tips, market trends, and sustainable practices directly in your inbox.",
+                "inputPlaceholder": "Enter your email",
+                    "buttonText": "Subscribe"
     },
     "blogSection": {
         "banner": "../../assets/banner.jpg",
