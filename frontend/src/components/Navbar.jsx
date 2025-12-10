@@ -1,17 +1,31 @@
 import React, { useState } from "react";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, ChevronDown, Facebook, MessageCircle, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const ResponsiveNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [isPagesOpen, setIsPagesOpen] = useState(false);
 
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Products", href: "/products" },
     { label: "Blog", href: "/blog" },
-    { label: "About", href: "/about" },
+    { label: "Our Service", href: "/products" },
     { label: "Contact", href: "/contact" },
+    { label: "About", href: "/about" },
+  ];
+
+  const pagesDropdownItems = [
+    { label: "Privacy", href: "/privacy" },
+    { label: "FAQ", href: "/faq" },
+    { label: "Our Team", href: "/ourteam" },
+    { label: "Reviews", href: "/reviews" },
+  ];
+
+  const socialLinks = [
+    { icon: <Facebook size={20} />, label: "Facebook", href: "https://facebook.com" },
+    { icon: <MessageCircle size={20} />, label: "WhatsApp", href: "https://whatsapp.com" },
+    { icon: <Youtube size={20} />, label: "TikTok", href: "https://youtube.com" },
   ];
 
   return (
@@ -19,75 +33,169 @@ const ResponsiveNavbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* NAVBAR MAIN ROW */}
         <div className="flex justify-between items-center h-16">
-          {/* LEFT: LOGO + MOBILE MENU BUTTON */}
           <div className="flex items-center">
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-md text-gray-700 hover:text-green-400 transition"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-
             {/* Logo */}
-            <Link to="/"
-              className="ml-2 lg:ml-0 text-xl font-bold text-green-400 transition-colors"
+            <Link
+              to="/"
+              className="text-xl font-bold text-lime-400 transition-colors"
             >
-              Farm
+              <img src={logo} alt="logo" className="w-16 h-16" />
             </Link>
           </div>
-          <div className="flex items-center justify-center">
-            {/* Desktop Nav Links */}
-            <div className="hidden lg:flex ml-10 space-x-3">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="text-gray-700 hover:text-green-400 px-3 py-2 text-sm font-medium transition duration-200 hover:scale-105"
-                >
-                  {item.label}
-                </a>
-              ))}
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                to={item.href}
+                className="text-gray-700 hover:text-lime-500 px-4 py-2 text-sm font-medium transition duration-200 hover:scale-105"
+              >
+                {item.label}
+              </Link>
+            ))}
+            
+            {/* Pages Dropdown for Desktop */}
+            <div className="relative group">
+              <button className="flex items-center text-gray-700 hover:text-lime-600 px-4 py-2 text-sm font-medium transition duration-200 hover:scale-105">
+                Pages
+                <ChevronDown size={16} className="ml-1" />
+              </button>
+              <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0">
+                {pagesDropdownItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-lime-600 transition-colors first:rounded-t-md last:rounded-b-md"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="hidden lg:flex items-center space-x-1">
+            {socialLinks.map((item) => (
+              <Link
+                key={item.label}
+                to={item.href}
+                className="text-gray-700 hover:text-green-600 px-4 py-2 text-sm font-medium transition duration-200 hover:scale-105"
+              >
+                {item.icon}
+              </Link>
+            ))}
             </div>
 
-            {/* SEARCH BAR */}
-            <div className="flex-1 max-w-md mx-4">
-              <div className="relative">
-                <Search
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-green-400"
-                  size={18}
-                />
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-green-600 hover:bg-gray-100 transition"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 bg-transparent pr-4 py-2.5 border placeholder:text-green-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent border-emerald-400 hover-border-emerald-400 rounded-full transition"
-                />
+        {/* MOBILE MENU - Full page overlay with slide animation */}
+        <div className={`lg:hidden fixed inset-0 z-40 overflow-hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
+          {/* Backdrop */}
+          <div 
+            className={`fixed inset-0 bg-black transition-opacity duration-300 ${
+              isMenuOpen ? 'opacity-50' : 'opacity-0'
+            }`}
+            onClick={() => setIsMenuOpen(false)}
+          />
+          
+          {/* Sliding Menu */}
+          <div 
+            className={`fixed left-0 top-0 h-full w-64 bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
+              isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+            }`}
+          >
+            {/* Menu Header with Logo */}
+            <div className="flex items-center justify-between p-4 border-b">
+              <Link
+                to="/"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-xl font-bold text-green-400"
+              >
+                <img src={logo} alt="logo" className="w-16 h-16" />
+              </Link>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="p-2 rounded-md text-gray-700 hover:text-green-600"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            {/* Menu Items */}
+            <div className="p-4 overflow-y-auto h-[calc(100vh-80px)] flex flex-col">
+              {/* Navigation Links */}
+              <div className="flex-grow">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-gray-700 hover:text-green-600 hover:bg-green-50 px-4 py-3 rounded-md text-base font-medium transition-colors mb-1"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                
+                {/* Pages Dropdown for Mobile */}
+                <div className="mb-1">
+                  <button
+                    onClick={() => setIsPagesOpen(!isPagesOpen)}
+                    className="w-full flex items-center justify-between text-gray-700 hover:text-green-600 hover:bg-green-50 px-4 py-3 rounded-md text-base font-medium transition-colors"
+                  >
+                    Pages
+                    <ChevronDown 
+                      size={20} 
+                      className={`transition-transform duration-300 ${isPagesOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  
+                  {/* Dropdown Items */}
+                  <div className={`overflow-hidden transition-all duration-300 ${
+                    isPagesOpen ? 'max-h-60 opacity-100 mt-1' : 'max-h-0 opacity-0'
+                  }`}>
+                    {pagesDropdownItems.map((item) => (
+                      <Link
+                        key={item.label}
+                        to={item.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block text-gray-600 hover:text-green-600 hover:bg-green-50 pl-8 pr-4 py-2.5 rounded-md text-sm font-medium transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Media Links - At the bottom of mobile menu */}
+              <div className="pt-6 mt-6 border-t">
+                <p className="text-sm text-gray-500 mb-3 px-4">Follow Us</p>
+                <div className="flex space-x-4 px-4">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:text-green-600 hover:bg-green-50 p-2 rounded-full transition-colors"
+                      aria-label={social.label}
+                    >
+                      {social.icon}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* MOBILE MENU */}
-        {isMenuOpen && (
-          <div className="lg:hidden bg-green-100 border-t">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block text-gray-700 hover:text-green-400 hover:bg-gray-50 
-                             px-3 py-2 rounded-md text-base font-medium transition"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </nav>
   );

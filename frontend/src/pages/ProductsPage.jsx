@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { ContentContext } from "../context/ContentContext";
 import {
   Search,
   Filter,
@@ -23,6 +24,11 @@ const ProductsSection = () => {
   const [selectedFeatures, setSelectedFeatures] = useState([]);
   const [sortBy, setSortBy] = useState("featured");
   const [viewedProducts, setViewedProducts] = useState([]);
+  const { content, loading } = useContext(ContentContext);
+  
+  if (loading || !content) return null;
+  
+  const data = content.productsSection;
 
   const categories = [
     {
@@ -268,6 +274,17 @@ const ProductsSection = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Banner Section */}
+      <div
+        className="relative w-full h-96 lg:h-[500px] bg-cover bg-center"
+        style={{ backgroundImage: `url(${data.banner1})` }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <h1 className="text-5xl lg:text-7xl font-bold text-center text-white">
+            SERVICES PAGE
+          </h1>
+        </div>
+      </div>
       {/* Products Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">

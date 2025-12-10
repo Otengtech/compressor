@@ -1,130 +1,205 @@
 {
     "heroSection": {
-        "badge": {
-            "icon": "sparkles",
-                "text": "Premium Quality"
-        },
-        "description": "Experience the finest quality eggs and chicks, nurtured with care and delivered with the promise of health and vitality for your farm.",
-
-            "stats": [
-                {
-                    "value": "500+",
-                    "label": "Happy Farms"
-                },
-                {
-                    "value": "98.5%",
-                    "label": "Success Rate"
-                },
-                {
-                    "value": "24/7",
-                    "label": "Support"
-                }
-            ],
-
-                "cta": {
-            "text": "View Products",
-                "link": "/products",
-                    "icon": "arrow-right"
-        },
-
-        "heroImage": "../assets/heroimage.png"
+        "heroImage": "../assets/heroimage.jpg",
+            "title": "AXIS FOODS",
+                "description": "Experience quality eggs, meats and chicks nurtured with care and delivered to you."
     },
     "whyChooseUs": {
-        "subtitle": {
-            "icon": "CheckCircle",
-                "text": "Why Choose Us"
-        },
-        "heading": {
-            "main": "Quality",
-                "highlight": "Service"
-        },
-        "paragraphs": [
-            "For over 35 years, we've dedicated ourselves to raising the highest quality poultry with a commitment to sustainability, health, and ethical farming practices that set us apart.",
-            "Our family-owned farm combines traditional values with modern technology to deliver poultry products you can trust. Every egg and chick is a testament to our unwavering dedication to quality."
-        ],
-            "cta": {
-            "text": "Read More",
-                "icon": "ArrowRight",
-                    "url": "/about"
-        },
-        "qualities": [
-            {
-                "icon": "Shield",
-                "title": "Premium Quality",
-                "description": "Rigorous health checks ensure only the healthiest poultry reaches your farm."
-            },
-            {
-                "icon": "Heart",
-                "title": "Animal Welfare",
-                "description": "Ethical treatment and spacious living conditions for all our birds."
-            },
-            {
-                "icon": "Sprout",
-                "title": "Natural Feed",
-                "description": "100% organic, antibiotic-free feed for optimal health and growth."
-            },
-            {
-                "icon": "Award",
-                "title": "Award Winning",
-                "description": "Recognized for excellence in poultry farming standards."
-            }
-        ]
+        "title": "Quality, innovation and food safety.",
+            "text1": "For over 35 years, we've dedicated ourselves to raising the highest quality poultry with a commitment to sustainability, health, and ethical farming practices that set us apart.",
+                "products": [
+                    {
+                        "id": "1",
+                        "category": "Live Poultry",
+                        "icon": "GiChicken",
+                        "text": "Healthy, well-raised live poultry sourced from trusted farms."
+                    },
+                    {
+                        "id": "2",
+                        "category": "Fresh Eggs",
+                        "icon": "GiEggClutch",
+                        "text": "Farm-fresh eggs collected daily, ensuring natural taste and quality."
+                    },
+                    {
+                        "id": "3",
+                        "category": "Chicken Meat",
+                        "icon": "GiMeat",
+                        "text": "Clean, high-quality chicken meat prepared under hygienic conditions."
+                    },
+                    {
+                        "id": "4",
+                        "category": "Chicks",
+                        "icon": "GiBabyFace",
+                        "text": "Healthy day-old chicks ideal for poultry farmers and hatcheries."
+                    }
+                ],
+                    "image": "../../assets/img1.jpg",
+                        "title2": "We take care of your health",
+                            "text2": "Our poultry and eggs are sourced from healthy, well-maintained farms to ensure that every product you consume is safe, nutritious, and of the highest quality. Your health is our priority."
     },
     "productsSection": {
-        "heading": {
-            "main": "Our",
-                "highlight": "Products"
-        },
-        "products": [
-            {
-                "id": 1,
-                "name": "Fresh Eggs",
-                "icon": "../assets/egg.jfif",
-                "price": "From $4.99",
-                "features": ["Farm Fresh", "Nutrient Rich", "Daily Collection"]
-            },
-            {
-                "id": 2,
-                "name": "Live Birds",
-                "icon": "../assets/bird.jfif",
-                "price": "From $2.49",
-                "features": ["Vaccinated", "Disease Free", "Fast Shipping"]
-            },
-            {
-                "id": 3,
-                "name": "Poultry Meat",
-                "icon": "../assets/meat.jfif",
-                "price": "From $24.99",
-                "features": ["Organic", "Balanced", "Best Quality"]
-            }
-        ]
+        "title": "Our Services",
+        "banner1": "../../assets/banner1.jpg",
+            "products": [
+                {
+                    "id": 1,
+                    "name": "The Best Poultry",
+                    "icon": "../assets/poultry.jpg",
+                    "text": "Fresh and healthy poultry raised on trusted farms, ensuring top quality for your meals."
+                },
+                {
+                    "id": 2,
+                    "name": "Chick Quality",
+                    "icon": "../assets/chick.jpg",
+                    "text": "Healthy, strong chicks ideal for farmers and hatcheries, sourced from reliable breeders."
+                },
+                {
+                    "id": 3,
+                    "name": "Pasteurized Egg",
+                    "icon": "../assets/eggs.jpg",
+                    "text": "Safe and hygienically pasteurized eggs, retaining all nutrients and natural flavor."
+                }
+            ]
     },
     "testimonialSection": {
-        "testimonials": [
-            {
-                "id": 1,
-                "name": "Michael Rodriguez",
-                "role": "Commercial Farmer, Texas",
-                "content": "The quality of chicks we received was exceptional. 98% survival rate and they're thriving. Best poultry supplier we've worked with in 15 years of farming.",
-                "rating": 5,
-                "avatar": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQAnQMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAADAgQFBgcAAQj/xAA8EAACAQMCBAQEBAQFAwUAAAABAgMABBEFIQYSMUETIlFhBzJxgRRCkcEjobHwFTNictE04fEWJENSU//EABkBAAIDAQAAAAAAAAAAAAAAAAABAgMEBf/EACARAAICAwADAAMAAAAAAAAAAAABAhEDITEEEkETIjL/2gAMAwEAAhEDEQA/ALby9icEUTlP/B9K9AHlonKCPmIx/OqiYlQCMZwaOibD0pJjz8p3PejogWI85AUDck4AoADdTwWdu891NHFCg5md2ChR9TWd8T/FBbVmtOGo1uXGxunXmTP+kd/6VVviNxWeIdSNjp8x/wANgJCcpAEz92J9PT9apf8AEwFViinJxk4P6VNIVk3q2tanqU4n1bmlZW252KgfQL0oP8LUJHeG4nt1xgqZC++OvXO/3qIMkmcsT6dKmtO09bmNBc8yM5BhnRRgn0z160wPLaRraQiFJgm3MYCCAOmcEbj1yNqeXNjFdzyIVTxjGJI3Vgob25emfpg+1cbhOW3mulx5ikzrsFbcfodv50O8mMAiRsKYGBAXcHHQjPaojD8JcW6hw5qI8J//AGbNie3c7DoCR7963fStYsdbtEubCdJVPUKRsa+ZZiUmLD8xyu3QVZeCuKJNCvg+P4IclkVuuQB06n1oaFZ9BonkWvCuOxpWnzJd2UU8fyuoPXNFdKQxqwz2zSQo9CDThl2pGMAmkAIqSKSFxRs7fXvQlYHdvKe4oAWu43643Fe4I2G/vROXI9q9C4743oAYBMdzXvJuASQaUOuOtGXlUAnFMDyNcDYYAqjfF7W5tM4dht7eRlkvpChxsRGB5v2FXvnGQBjrv9Kyr48CQ/4OwUiECXftzeXb64oXQMm5845hkAY9KI88jkEEqAAAB2pBQgkHY+lSmiWTTXKlVDj82Vyo+v8A4qZGhva2U18SIjzyY8oz19qmtBVkgms713jwCVQnDIfUA9R9Pal3cIt5FWKFVMfzED9/+1Gtre/151s7a3SUY3LL0x3z3PvUXJJbLFFvhEXN08MrrIC8cp86HHK2O4otrCb1PByzxpgxswwQO4/4q66Z8ML+5cG7kKpsD6mrho3w+s9LVRIRJ5s4Zeh9qzzzxS0XxwO9mKatYyWw8Q2rRI4HIzLgn39qjY38KQNzPkdMVv8AxdoMF/pctuIwCF8jY6EVhN7Zm35fKRv3G2anhzKa2QzYvTaPoX4Zai2qcOI7shZW6LnAH3q1MnrtWQ/A28Mc17YpnzqsmW+42/SthOTuSBVhSN2SkeH604Y15tjegAHh7UPwFJJwKc5HY5rzK5G+M0ABERUELjHpmlBD+ZQPvRgB6CuIHcUgIvw1DAFm+metKEKg5HN9zmiLjA23G9K/enQCPwwIALty5yd8faqJ8aNO8fhOK7Qb2tyrMO5DAqf54rRUGV6VAcd2Ul9whqttEpMjQkquNzjemgPmk+ZiTuamrC5htiBZpiRlwxlXP6VFWvI1xGD0J3qVCLHcAgDY1GcqJ442WbS9FuNRCs6hs4+g+laLoOlQaTGBGnnI8xPc1C8LNG9rEue1WkJ4e++9c+WSUmdKOOMVontPn5k3oszj1FQtnO2eVTT2ViI+dmAHvtS6iLVMRcAMxGxB6isi420aOHUJDGp2OeUDt/ea0yTVbXxhH+IhLdMc4zUBxdo51Sz8e0lK3CDIwdmA7UscvSVsc4e0aKz8KVMHF6IwC88LAD1/vB/sVuJUVhfwzlZOKoJp8eRW5m5CeUY22FbqjLLH4kbZQ7g10lJM5sotAim9eFM9s0Xlycen/FeFR2FMiCEY64ArwxA77UQDbIBr3HrQAJV5cjt71zIT0FG5cnFKC7bUgIkDBAHTpml8uw26bivE6bUvlNMAse4BPejhEZSpxv8A8UFVPT1o8aAkZ7HNID5n4+4bPC/FUtlF/kSYlt/9rE7fYgimR/6iPxCFXuTWu/HeGybTNJuJlf8AGLc8sLqu3LsWDH06EfT61kt7axtdeJckiBBuoPX1pS2WY7XC18Pa5Y2rKpukwpxjOK0C01S3uohiUMSM7Gsr0uO0vru3s00NY4pV8k4VmYnPfsPrQNTS+4Y1pIPF5oiRyhTsVrK8S+G2OZ/TXLqe4tLdpYAvNynlLHYVnmpayk1y02t6pfzRx9YrbKKBnpt9e5rWNKaLUdBiLICCu+1U244Suobu4jt1iNpN8ySKTzD0NVRlTLJL2tC9IvOGxbRRx6RIqO/Is8yq4dsA7EMdxkVbTZxpZhoRhPyjHWhaTYRW9vDbsIYkj+SKFMCp2SINblcEZFLJt2hRuPShcBWtrp/Emu21yQhkePwd+qnnOKufDqS213qNhIWaNZBNEWct5XHqf9QNV0Wwh16WVAGmubVo0Qd3GCpq36NbtEAzkF/CCkj1yT+9WY5XNEMtLHJD/lwc15jBziiMAvfY9K7G1bjmgiMA4+tdS8ZrwjqO/agAJLKcqMn0ouCAMUoJvk0QDApDIRetHXpTdTR03ApgFXNGhG9DQU4hHWgCjfGTT5r7guV4etrIs0gx+UbE/YGsOnSW5aNogTzxBsA19T3VtFewzWtwgeGaNo5FPdWGCP0NfOGuaLc8M6rJpdwxL2sh8OTP+bG26t/fpUZctFmN7omOFrW6SEPLLIFOfKB+9V3jIltTywwFGFFaHwxPHJp4dypOKoPFYW617kXpknHqM1jxt+7s35Evxo2H4c3Rn4ah5/m5RtU/LPGYyMbiqD8O9f06GCK38dGZm5fDB3zVwS+mmuGWa3tYYD8sgny33GP3qLgyX0cWLRNPzAipa4K+H5W7VAOlt4p8C4QSjsT1pb3LiJg7gEDO561C6VClH2dkHrd0ltrultzhWF0i7nGzbfvWipFygHv396wji/VxNqSxxE80ci8r+4I6fet8TLIpYeYgZ+ta/HhSsx+TK3QN1JG21cRsc7jOw9KLivCu1aTMBA9a4g0Xlriu1Awar3pWK9QeXf1r1lz60gK6hpzH0FNkA706jVd9z1osBwtOIaboVPbGKcIR6GgBWPNzHpWS/HWzMd1p+rLGGUKYJD7bkf1rX0G1QXHnDw4k4aurIEibAeI/6huBRVhdOzCNI1X8PbFVby/Wq/rM4klMzEktnl/v0ptL49jcy2k6NHIhIdW2xRLW3doHnHhqQAgzuRjOciqo41GTbNEsrklEnOD7Xzu7yCyEqEeKT8oqZtdFmExtn1ia5bIIaDPNjHYZqP4WEULqdQeN427Svt+nStA0XVtMS4FpaujySbMsC7fQn7VVOWzZjxwUFZTbzStdsle8s0vpreD/ADCx82P1qWu+ILpOGbS4kkzI0R6nqSQB/KtTEawWJJQBQp8vpWD8T3+b+axhBMVsfKg7VFfu6ork4xtoBpcEmrcRaZYxszSz3K9RnO+Tn29a+osY261iXwf4feG5TXrxGXYR26uMEBvmff7CtuxkdMVqx1xfDFku7f0Tiu5aUBtXuKsKhBAHWu2xS67FFDQjGa7FKAr3FFAVdAM4zTuIHt3ptGozmnkQ3GBmojDxg+xpxGKCikgZGD1pygoAIopYG4prf31pptq1zqFzDbQJ8zzOFFZZxf8AGy0tOe14atWuZgcfirheWMe4X5j98VJIVg/jTwRYvBJxDaXMFpcBwZ0lkVBL2yufzew61jFnPyMqs3lJwcDp7UvV9b1HXNUa+1W6kuZ2bOXOy+yjoB9KGRzsGUefGQQcb0pVxjjfUW3Q7aGRk/EkcvYN0FXnQLnS9KuHYCLJIPPWP/j7lVjUuckDC5/+vQUqG8vbh1hiikd+nKu5rO8G+muPkKqo2Pinju3OmeDaMCZAVLA+oP8AKs64f0WfiXWXiYeTlJklJ2xthfr16dqf8O8C65qdxFJenwbXlOeZsOoz0xWu8P6FZaLZxW1nEByDdicliepNJyjjWugovI7eh1plsYbQRZICADH09PSn9vrE8OVuYjIB+dNifqKUi7YApQtgWI6g1mUpJ2iyUYtVIb/+s9Iguvw1+Z7ByMq1xH/DcezDI/XFWCKRJ4klhdZI3GVZTkEeoNZP8TZ7ZXtLNW5pgxJRfcbZ/rVc0XiLV9EITTbx+SMAGN/NG/2PT7b11sMJZMak+nPyuMJ0jfxvXuKpHD/xGsb1BHqsZsp8DLDzR/r2q5wTxXMSy28sckbdHRsg0OLj0immExXYr2uqIyroDkco6j1p/AuQDjHtTVnhtoZJ7iVIoYlLySOcKqjckmsi4n+KGq3dzLBw4y2mnjZbgx5mkx1Izso9BjO32CjFy4NtI2m8vbXTbdrm/uYreBRkySsFA/Wsz4u+M9paB7bhi3/FTDKm6nBWNf8AavVv5CslvHvNQkN3qdxLPJ/+k8hZsegz0+1MBB4z5Awoq1YWiPug+sa3quuXTXusXs9zN+Xnbyp/tHRfoKixkjOTvRrocpEYrwrllXtiihWBHlYGntuMkU3K8zkGpDSlRZ+W5yISN3UfIarnBtaLISSeySgsTcxgBAzHptUloGmH/EVW4Lw8pzkbZqz6HYwxxo0ZjkRvldDkH6VOHRVaQSKu+elc9zd0dCMFVosGiFBbABufAqYiIbGBtVct0Nv5QNqmtMy49KrfST0iTjXaobXdeGgWdyJOU3OM2wJ6g9z7Deg67xZZ6UjR2zJcXI2Cq3lU+rH9qzTVb2fUbl7m9laR3Gdxt9B6Ct3i+K5P2lww589aQCSR7y4kvZ3LyOxILdd+9BlXlZZAO3f3ovOOX3JHU0W5BCoMDr2rsLWjnvY0VsEc5C8p29Kk9K1bUNJuRPp1xJEpPmQN5T9VqLuUZVBj6dqJZP4icrHpQ0n0DUtE+JEErCDWYDA/aeIZRvt1FXOw1Sw1CIyWd5DMo6lXG31Havn8x8rFiDv3FLaGKU5kQMfUjrVEvHT4TU2D+JHGb61ctp+nzFdLiOGAGPxDA/Mf9PoO/XfbFVhHOPElOEUDlH2pog51G/fFSNvEXjUt8vLkj17ftTxwpBOViJEFwMv5YlGw9a9it/4ZkK9R2FdO7HkiX85FOtQmS2s2wflGKsohvhX4rc3V8wAJCntRms2/xFYsdjUxw9aeBbGeUAs+/ShD+LrceAO+agoasl7Ef+C5LrlcqN6fxQoo3BwDtg0u6/61iOg2xT1YT4PMcEGpqKFdgrC5urFg1ncvE5OSo+VvcjGKtdhxrqVugW5t7eYdiEKk/ocfyqplArZx/wB6cxAhTjcZ3z0quWGEv6ROOWceMtU/HN3IMR6dCp9SWb+VMH4g1e9UpLciGI9Ujwox9tz+tQgyxOCD969RgGwWzv60RwY4u0hvNkl1j8FVHNzZb1Pb7UgMHfPXA6miOCkQJIwQcmm9uS0Rdu9W0VBkwZlDZx6U4viUhU9Rj0prA/NcZ5cU9v8Ae2yuSAuKYA4x4sLZGcCoaFzaTYfmALdfaprR2SWJlB8wHek3VkkgMbr12z3oAKo8ZF5SMmmpLJIyKp275pnpkslpeyWMzZcbxk9xUmbFbyZw5ZVQDHL6nrTsCi2+8vJ+UjNTHy2kYHbP9a8rqrgEhtZ+bUWz/wDGnl9smh6p/Enhhb5GkwR7V1dT+MF0n2wkQVQABgYFRWmgHWZM/lQ4r2upv4I9mAL7/mO5+9SrKBEoA7V1dQMayoMK3rRk+ToMY6Yrq6mAuMDkz6g03tgHvuVuma6upASWsDkgIXYE74oa+W2XlAHlrq6mB7aIGLE5zj1qRjHNbbk9PWurqAI+wHhX8qoSBkf0qXuQFmVgN2UZryupAQfEMaobO4QYkD9frtip7SjmORiBksM/oK6upPoz/9k="
-            },
-            {
-                "id": 2,
-                "name": "Sarah Johnson",
-                "role": "Organic Farm Owner, Oregon",
-                "content": "Their commitment to animal welfare and organic practices aligns perfectly with our values. The eggs are consistently fresh and customers love them.",
-                "rating": 5,
-                "avatar": "data:image/jpeg;base64,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"
-            },
-            {
-                "id": 3,
-                "name": "Felix Oteng",
-                "role": "On-Farm Supervisor, Ghana",
-                "content": "Performing supervisions on farm help improve the overall production to meet customer demand.",
-                "rating": 5,
-                "avatar": "data:image/jpeg;base64,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"
-            }
-        ]
+        "title": "What They’re Saying",
+            "testimonials": [
+                {
+                    "id": 1,
+                    "name": "Michael Rodriguez",
+                    "role": "Commercial Farmer, Texas",
+                    "content": "The quality of chicks we received was exceptional. 98% survival rate and they're thriving. Best poultry supplier we've worked with in 15 years of farming.",
+                    "rating": 5,
+                    "avatar": "../../assets/avatar1.jfif"
+                },
+                {
+                    "id": 2,
+                    "name": "Sarah Johnson",
+                    "role": "Organic Farm Owner, Oregon",
+                    "content": "Their commitment to animal welfare and organic practices aligns perfectly with our values. The eggs are consistently fresh and customers love them.",
+                    "rating": 5,
+                    "avatar": "../../assets/avatar2.jfif"
+                },
+                {
+                    "id": 3,
+                    "name": "Felix Oteng",
+                    "role": "On-Farm Supervisor, Ghana",
+                    "content": "I really like your website interface it is really nice, catchy and easily navigated. Your products are all quality, I really loved the chicken meat.",
+                    "rating": 5,
+                    "avatar": "../../assets/avatar3.jfif"
+                }
+            ],
+                "images": [
+                    {
+                        "id": "1",
+                        "img": "../../assets/image1.jpg"
+                    },
+                    {
+                        "id": "2",
+                        "img": "../../assets/image2.jpg"
+                    },
+                    {
+                        "id": "3",
+                        "img": "../../assets/image3.jpg"
+                    },
+                    {
+                        "id": "4",
+                        "img": "../../assets/image4.jpg"
+                    },
+                    {
+                        "id": "5",
+                        "img": "../../assets/image5.jpg"
+                    },
+                    {
+                        "id": "6",
+                        "img": "../../assets/image6.jpg"
+                    }
+                ]
+    },
+
+    "ourteamSection": {
+        "title": "Meet Our Team",
+            "text": "Our team works really hard to keep this wonderful company going to produce and meet consumers' needs.",
+                "members": [
+                    {
+                        "id": "1",
+                        "image": "../../assets/team1.jpg",
+                        "socials": ["facebook", "whatsapp", "twitter"],
+                        "name": "Rabie Mark",
+                        "position": "Lead Farmer",
+                        "description": "Specializes in organic farming with 15 years of experience in sustainable agriculture."
+                    },
+                    {
+                        "id": "2",
+                        "image": "../../assets/team2.jpg",
+                        "socials": ["facebook", "instagram", "linkedin"],
+                        "name": "Sarah Johnson",
+                        "position": "Agricultural Engineer",
+                        "description": "Expert in modern irrigation systems and soil management techniques."
+                    },
+                    {
+                        "id": "3",
+                        "image": "../../assets/team3.jpg",
+                        "socials": ["whatsapp", "twitter", "linkedin"],
+                        "name": "Miguel Rodriguez",
+                        "position": "Harvest Manager",
+                        "description": "Oversees harvesting operations ensuring quality and efficiency across all farms."
+                    },
+                    {
+                        "id": "4",
+                        "image": "../../assets/team4.jpg",
+                        "socials": ["facebook", "instagram", "whatsapp"],
+                        "name": "Amara Chen",
+                        "position": "Sustainability Officer",
+                        "description": "Implements eco-friendly practices and manages our green certification programs."
+                    }
+                ]
+    },
+    "blogSection": {
+        "banner": "../../assets/banner.jpg",
+            "title": "View Our Blog",
+                "text": "Explore our various blog posts for more detailed information.",
+                    "blogs": [
+                        {
+                            "id": "1",
+                            "category": "Farming Tips",
+                            "img": "../../assets/blog1.jpg",
+                            "title": "How to Improve Soil Health Naturally",
+                            "description": "Discover simple organic methods to boost soil fertility and support plant growth.",
+                            "date": "2025-01-10"
+                        },
+                        {
+                            "id": "2",
+                            "category": "Agriculture",
+                            "img": "../../assets/blog2.jpg",
+                            "title": "The Future of Smart Farming",
+                            "description": "A look into innovative technologies transforming modern farming.",
+                            "date": "2025-01-14"
+                        },
+                        {
+                            "id": "3",
+                            "category": "Harvesting",
+                            "img": "../../assets/blog3.jpg",
+                            "title": "Best Practices for Efficient Harvesting",
+                            "description": "Learn techniques to maximize yield and reduce crop loss.",
+                            "date": "2025-01-20"
+                        },
+                        {
+                            "id": "4",
+                            "category": "Sustainability",
+                            "img": "../../assets/blog4.jpg",
+                            "title": "Sustainable Methods for Greener Farming",
+                            "description": "Eco-friendly strategies to maintain long-term agricultural productivity.",
+                            "date": "2025-01-25"
+                        },
+                        {
+                            "id": "5",
+                            "category": "Market Trends",
+                            "img": "../../assets/blog5.jpg",
+                            "title": "Understanding Current Agricultural Market Trends",
+                            "description": "Insights on pricing, demand, and upcoming opportunities in the market.",
+                            "date": "2025-01-29"
+                        }
+                    ]
     }
 }

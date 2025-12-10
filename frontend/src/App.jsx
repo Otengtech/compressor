@@ -9,6 +9,7 @@ import AboutPage from "./pages/AboutUsPage";
 import ContactPage from "./pages/ContactPage";
 import BlogPage from "./pages/BlogPage";
 import Loader from "./components/Loader";
+import ScrollToTop "./components/ScrollToTop";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function AppContent() {
 
   return (
     <>
+    <ScrollToTop>
       <Navbar />
       {loading ? (
         <Loader />
@@ -37,6 +39,7 @@ function AppContent() {
           <Route path="/blog" element={<BlogPage />} />
         </Routes>
       )}
+      </ScrollToTop>
     </>
   );
 }

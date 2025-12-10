@@ -26,7 +26,7 @@ const Footer = () => {
             {/* Brand */}
             <div className="lg:col-span-2">
               <h2 className="text-3xl font-bold mb-4">
-                Poultry<span className="text-green-500">Farm</span>
+                Succes Axis<span className="text-lime-500"> Foods</span>
               </h2>
               <p className="text-gray-400 mb-6 max-w-md">
                 Providing premium poultry products with unmatched quality and service since 1985.
@@ -35,15 +35,15 @@ const Footer = () => {
               {/* Trust Badges */}
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center text-sm text-gray-400">
-                  <Shield className="w-4 h-4 text-green-400 mr-2" />
+                  <Shield className="w-4 h-4 text-lime-400 mr-2" />
                   Certified Quality
                 </div>
                 <div className="flex items-center text-sm text-gray-400">
-                  <Truck className="w-4 h-4 text-green-400 mr-2" />
+                  <Truck className="w-4 h-4 text-lime-400 mr-2" />
                   Fast Delivery
                 </div>
                 <div className="flex items-center text-sm text-gray-400">
-                  <CheckCircle className="w-4 h-4 text-green-400 mr-2" />
+                  <CheckCircle className="w-4 h-4 text-lime-400 mr-2" />
                   98% Satisfaction
                 </div>
               </div>
@@ -87,8 +87,8 @@ const Footer = () => {
           <div className="border-t border-gray-800 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               
-              <div className="text-gray-500 text-sm mb-4 md:mb-0">
-                © {currentYear} PoultryFarm. All rights reserved.
+              <div className="text-gray-400 text-sm mb-4 md:mb-0">
+                © {currentYear} Succes Axis Foods. All rights reserved.
               </div>
               
               {/* Social Media */}
