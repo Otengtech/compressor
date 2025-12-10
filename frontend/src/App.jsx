@@ -9,7 +9,7 @@ import AboutPage from "./pages/AboutUsPage";
 import ContactPage from "./pages/ContactPage";
 import BlogPage from "./pages/BlogPage";
 import Loader from "./components/Loader";
-import ScrollToTop "./components/ScrollToTop";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
