@@ -41,18 +41,11 @@ const FAQPage = () => {
       <section className="py-20 bg-gradient-to-b from-white to-gray-100">
         <div className="container mx-auto px-5 max-w-4xl">
           {/* TITLE */}
-          <div
-            ref={titleRef}
-            className="scroll-reveal opacity-0 translate-y-8 text-center mb-16"
-          >
-            <span className="text-sm font-semibold text-lime-600 bg-emerald-50 px-4 py-2 rounded-full inline-block mb-4">
-              FAQ
-            </span>
-
+          {/* Header */}
+          <div className="bg-amber-500 text-white py-16 text-center shadow-lg">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Frequently Asked Questions
+              FREQUENTLY ASKED QUESTIONS
             </h1>
-
             <p className="text-lg text-gray-600">
               Find answers to common questions about our products and services.
             </p>

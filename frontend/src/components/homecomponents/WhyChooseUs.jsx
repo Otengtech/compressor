@@ -57,7 +57,7 @@ const AboutSection = () => {
 
           {/* Right Column */}
           <div ref={rightTextRef} className="scroll-reveal space-y-6">
-            <p className="text-sm lg:text-lg text-gray-600 leading-relaxed">
+            <p className="text-md lg:text-lg text-gray-600 leading-relaxed">
               {data.text1}
             </p>
             <div className="flex items-center space-x-4">
@@ -89,7 +89,7 @@ const AboutSection = () => {
                   <img
                     src={item.image}
                     alt="product image"
-                    className="w-full h-full object-conver rounded-t-lg"
+                    className="w-full h-full object-cover rounded-t-lg"
                   />
                 </div>
 

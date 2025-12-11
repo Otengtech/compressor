@@ -47,7 +47,7 @@ const AboutSection = () => {
           />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center">
             <div className="w-full max-w-5xl">
               <div className="mb-8 items-center">

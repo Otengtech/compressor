@@ -171,7 +171,7 @@ const ReviewPage = () => {
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 lg:px-16">
           <div ref={statsRef} className="scroll-reveal opacity-0 translate-y-8 bg-white rounded-3xl p-8 shadow-lg">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               {/* Average Rating */}
               <div className="text-center">
                 <div className="text-5xl font-bold text-gray-900 mb-2">{averageRating}</div>

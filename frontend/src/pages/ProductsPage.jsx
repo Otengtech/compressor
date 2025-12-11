@@ -31,7 +31,7 @@ const ProductsSection = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="relative w-full h-[60vh] overflow-hidden rounded-xl">
+      <div className="relative w-full h-[60vh] overflow-hidden">
         <video
           className="w-full h-full object-cover"
           src={bannerVideo}
