@@ -13,12 +13,12 @@ const HeroSection = () => {
 
   return (
     <section className="relative w-full overflow-hidden">
-      {/* Background Image Container */}
+      {/* Background Image*/}
       <div className="relative">
         {/* Background Video */}
         <video
           className="w-full h-[75vh] max-h-[75vh] object-cover"
-          src={""}
+          src={bannerVideo}
           autoPlay
           muted
           loop
