@@ -75,10 +75,10 @@ const OurTeam = () => {
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-6 sm:space-y-0 sm:space-x-4">
                 <Link
-                  to="/about"
-                  className="inline-flex items-center px-8 py-4 bg-lime-600 text-white font-semibold rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 group"
+                  to="/team"
+                  className="inline-flex items-center px-8 py-4 bg-lime-500 text-gray-700 font-semibold rounded-sm shadow-lg hover:shadow-xl transition-all duration-300 group"
                 >
-                  Read More
+                  Our Team
                   <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
                 </Link>
 
@@ -102,7 +102,7 @@ const OurTeam = () => {
               </div>
 
               {/* Stats */}
-              <div
+              {/* <div
                 ref={statsRef}
                 className="scroll-reveal opacity-0 translate-y-8 grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-100 max-w-2xl mx-auto lg:mx-0"
               >
@@ -124,14 +124,14 @@ const OurTeam = () => {
                     Support
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
 
         {/* TEAM GRID - BELOW THE CONTENT */}
         <div className="w-full">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-6 gap-6 max-w-4xl mx-auto">
             {data.members.map((member, index) => (
               <div
                 key={member.id}
@@ -140,13 +140,13 @@ const OurTeam = () => {
               >
                 <div className="bg-lime-100 rounded-2xl shadow-md border border-gray-100 overflow-hidden h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                   {/* IMAGE */}
-                  <div className="relative w-full h-48 sm:h-56 lg:h-64 overflow-hidden">
+                  <div className="relative w-full h-56 sm:h-56 lg:h-64 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10"></div>
 
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
 
                     {/* Badge */}
@@ -172,7 +172,7 @@ const OurTeam = () => {
 
                   {/* INFO */}
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-md font-bold text-gray-900 mb-2">
                       {member.name}
                     </h3>
                   </div>

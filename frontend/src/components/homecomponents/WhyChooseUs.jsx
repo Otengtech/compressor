@@ -13,8 +13,11 @@ const AboutSection = () => {
   const secondTitleRef = useScrollReveal();
   const secondRightTextRef = useScrollReveal();
   const statsRef = useScrollReveal();
+
+  
   
   const { content, loading } = useContext(ContentContext);
+  const productRefs = Array.from({ length: content?.productsSection?.products?.length || 0 }, () => useScrollReveal());
 
   if (loading || !content) return null;
 
@@ -36,12 +39,10 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="bg-gray-200 py-16 lg:px-36 lg:py-16 overflow-hidden">
+    <section className="bg-gray-100 py-16 lg:px-28 lg:py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* TOP SECTION */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16 lg:mb-20">
-
           {/* Left Column */}
           <div ref={titleRef} className="scroll-reveal">
             <div className="mb-6">
@@ -76,33 +77,40 @@ const AboutSection = () => {
           ref={gridRef}
           className="scroll-reveal grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
         >
-          {data.products.map((item) => {
+          {data.products.map((item, index) => {
             const IconComponent = iconMap[item.icon] || Icons.Package;
 
             return (
               <div
                 key={item.id}
-                className="group relative p-6 lg:p-8 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-500"
+                className="group relative bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-500"
               >
-                <div className="space-y-4 relative z-10">
-                  <h3 className="text-xl font-bold bg-gray-700 bg-clip-text text-transparent">
-                    {item.category}
-                  </h3>
-
-                  <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                    {item.text}
-                  </p>
+                <div ref={productRefs[index]} className="w-full h-48">
+                  <img
+                    src={item.image}
+                    alt="product image"
+                    className="w-full h-full object-conver rounded-t-lg"
+                  />
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-lime-100 relative">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
+                <div className="p-6">
+                  <div className="space-y-4 relative z-10">
+                    <h3 className="text-xl font-bold bg-gray-700 bg-clip-text text-transparent">
+                      {item.category}
+                    </h3>
+
+                    <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                      {item.text}
+                    </p>
+                  </div>
+                  <div className="flex mt-3 items-center justify-between">
+                    <Link to={item.link} className="flex items-center space-x-3">
                       <span className="text-sm font-semibold text-lime-600 group-hover:text-lime-700 transition-colors duration-300">
                         Learn more
                       </span>
 
                       <Icons.ChevronRight className="h-4 w-4 text-lime-400 group-hover:text-lime-500 transition-colors duration-300" />
-                    </div>
+                    </Link>
 
                     {item.price && (
                       <span className="text-sm font-bold text-emerald-600">
@@ -110,10 +118,6 @@ const AboutSection = () => {
                       </span>
                     )}
                   </div>
-                </div>
-
-                <div className="absolute bottom-0 right-0 w-24 h-24 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                  <div className="absolute inset-0 bg-gradient-to-tl from-lime-400 to-emerald-400 rounded-tl-2xl" />
                 </div>
               </div>
             );
@@ -134,7 +138,6 @@ const AboutSection = () => {
 
         {/* SECOND SECTION */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start my-16 lg:mb-20">
-
           {/* Left */}
           <div ref={secondTitleRef} className="scroll-reveal">
             <div className="my-6">
@@ -154,7 +157,7 @@ const AboutSection = () => {
             </p>
             <div className="flex items-center space-x-4">
               <Link
-                to="/about"
+                to="/products"
                 className="inline-flex items-center px-6 py-3 color text-gray-700 font-medium rounded-sm duration-300 group"
               >
                 Read More
@@ -167,13 +170,13 @@ const AboutSection = () => {
         {/* STATS */}
         <section
           ref={statsRef}
-          className="scroll-reveal bg-lime-100 rounded-2xl py-16"
+          className="scroll-reveal bg-lime-50 rounded-2xl py-14"
         >
           <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <h1 className="text-4xl font-extrabold text-gray-700">
+                  <h1 className="text-3xl font-extrabold text-gray-700">
                     {stat.value}
                   </h1>
                   <p className="mt-2 text-lg text-gray-500">{stat.label}</p>
@@ -182,7 +185,6 @@ const AboutSection = () => {
             </div>
           </div>
         </section>
-
       </div>
     </section>
   );

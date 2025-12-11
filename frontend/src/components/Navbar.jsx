@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Search, Menu, X, ChevronDown, Facebook, MessageCircle, Youtube } from "lucide-react";
+import { Search, Menu, X, ChevronDown, Facebook, Instagram, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
@@ -23,9 +23,9 @@ const ResponsiveNavbar = () => {
   ];
 
   const socialLinks = [
-    { icon: <Facebook size={20} />, label: "Facebook", href: "https://facebook.com" },
-    { icon: <MessageCircle size={20} />, label: "WhatsApp", href: "https://whatsapp.com" },
-    { icon: <Youtube size={20} />, label: "TikTok", href: "https://youtube.com" },
+    { icon: <Facebook size={20} />, label: "Facebook", href: "https://www.facebook.com/NayaSuccessAxis/" },
+    { icon: <Instagram size={20} />, label: "WhatsApp", href: "https://www.instagram.com/nayasuccessaxisfarms/" },
+    { icon: <Youtube size={20} />, label: "TikTok", href: "https://youtu.be/huUjY541_jo?si=4b3kuwjj77b7Ttl6" },
   ];
 
   return (

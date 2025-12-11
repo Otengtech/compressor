@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useContext } from "react";
 import { ContentContext } from "../context/ContentContext";
-import Footer from "../components/homecomponents/Footer"
+import Footer from "../components/homecomponents/Footer";
 import bannerVideo from "../video/video.mp4";
 
 const ProductsSection = () => {
@@ -32,21 +32,20 @@ const ProductsSection = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="relative w-full h-[60vh] overflow-hidden rounded-xl">
-  <video
-    className="w-full h-full object-cover"
-    src={bannerVideo}
-    autoPlay
-    muted
-    loop
-    playsInline
-  />
-  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-    <h1 className="text-white text-4xl md:text-6xl font-bold">
-      SERVICES PAGE
-    </h1>
-  </div>
-</div>
-
+        <video
+          className="w-full h-full object-cover"
+          src={bannerVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+          <h1 className="text-white text-4xl md:text-6xl font-bold">
+            SERVICES PAGE
+          </h1>
+        </div>
+      </div>
 
       {/* Controls Section */}
       <div className="container mx-auto px-4 py-8">
@@ -183,7 +182,7 @@ const ProductsSection = () => {
                       {product.name}
                     </h3>
                     <span className="text-lg font-bold text-lime-600">
-                      ${product.price}
+                      Ghs{product.price}
                     </span>
                   </div>
                   <p className="text-gray-600 mb-4 line-clamp-2">

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { 
   Mail, 
   ArrowRight, 
   Facebook, 
-  Twitter, 
+  Youtube, 
   Instagram,
   Shield,
   Truck,
@@ -12,7 +12,6 @@ import {
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const [email, setEmail] = useState("");
   const currentYear = new Date().getFullYear();
 
   return (
@@ -94,13 +93,13 @@ const Footer = () => {
               
               {/* Social Media */}
               <div className="flex space-x-4 mb-4 md:mb-0">
-                <a href="#" className="text-gray-400 hover:text-[#f4b63c] transition-colors">
+                <a href="https://www.facebook.com/NayaSuccessAxis/" className="text-gray-400 hover:text-[#f4b63c] transition-colors">
                   <Facebook className="w-5 h-5" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-[#f4b63c] transition-colors">
-                  <Twitter className="w-5 h-5" />
+                <a href="https://youtu.be/huUjY541_jo?si=4b3kuwjj77b7Ttl6" className="text-gray-400 hover:text-[#f4b63c] transition-colors">
+                  <Youtube className="w-5 h-5" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-[#f4b63c] transition-colors">
+                <a href="https://www.instagram.com/nayasuccessaxisfarms/" className="text-gray-400 hover:text-[#f4b63c] transition-colors">
                   <Instagram className="w-5 h-5" />
                 </a>
               </div>

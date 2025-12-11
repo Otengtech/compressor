@@ -1,36 +1,40 @@
 {
     "heroSection": {
-        "heroImage": "../assets/heroimage.jpg",
-            "title": "NAYA AXIS FOODS",
+        "heroVideo": "../../video/v2.mp4",
+            "title": "NAYA SUCCESS AXIS",
                 "description": "Experience quality eggs, meats and chicks nurtured with care and delivered to you."
     },
     "whyChooseUs": {
         "title": "Quality, innovation and food safety.",
-            "text1": "For over 35 years, we've dedicated ourselves to raising the highest quality poultry with a commitment to sustainability, health, and ethical farming practices that set us apart.",
+            "text1": "NAYA Success Axis is an Agribusiness that started as a backyard poultry farm in 2018. It was registered as a fulltime business in April 2019 at the Registrar General Department. It Currently has 2 branches in Accra – Adenta and Aburi - Mariakrom in the Eastern Region. ",
                 "products": [
                     {
                         "id": "1",
-                        "category": "Live Poultry",
-                        "icon": "GiChicken",
-                        "text": "Healthy, well-raised live poultry sourced from trusted farms."
+                        "category": "Layer",
+                        "link": "/products",
+                        "image": "../../assets/blog3.jpg",
+                        "text": "Healthy, well-raised live poultry layers sourced from trusted farms."
                     },
                     {
                         "id": "2",
                         "category": "Fresh Eggs",
-                        "icon": "GiEggClutch",
+                        "link": "/products",
+                        "image": "../../assets/eggs.jpg",
                         "text": "Farm-fresh eggs collected daily, ensuring natural taste and quality."
                     },
                     {
                         "id": "3",
-                        "category": "Chicken Meat",
-                        "icon": "GiMeat",
-                        "text": "Clean, high-quality chicken meat prepared under hygienic conditions."
+                        "category": "Broiler Meat",
+                        "link": "/products",
+                        "image": "../../assets/p2.webp",
+                        "text": "Clean, high-quality broiler wings, breast, thighs, neck, full broiler etc."
                     },
                     {
                         "id": "4",
-                        "category": "Chicks",
-                        "icon": "GiBabyFace",
-                        "text": "Healthy day-old chicks ideal for poultry farmers and hatcheries."
+                        "category": "Smoked Chicken",
+                        "link": "/products",
+                        "image": "../../assets/p1.avif",
+                        "text": "Healthy smoked chicken in various prices and sizes, very clean and hygienic."
                     }
                 ],
                     "image": "../../assets/img1.jpg",
@@ -78,13 +82,13 @@
                 },
                 {
                     "id": "birds",
-                    "name": "Live Birds",
+                    "name": "Layers",
                     "icon": "Bird",
                     "count": 5
                 },
                 {
                     "id": "meat",
-                    "name": "Poultry Meat",
+                    "name": "Broiler meats",
                     "icon": "Drumstick",
                     "count": 3
                 }
@@ -92,95 +96,97 @@
                 "products": [
                     {
                         "id": 1,
-                        "name": "Premium Brown Eggs",
+                        "name": "Medium and Large Eggs",
                         "category": "eggs",
-                        "price": 5.99,
+                        "price": 60,
                         "rating": 4.9,
                         "reviews": 128,
                         "features": ["organic", "free_range", "fresh"],
                         "image": "../../assets/image1.jpg",
-                        "description": "Farm-fresh brown eggs from free-range hens. Rich in omega-3 and vitamins.",
-                        "description1": "Our Premium Brown Eggs are carefully collected from free-range hens that roam freely on lush pastures, feeding on a natural diet rich in grains and greens. These eggs are packed with essential nutrients including high-quality protein, omega-3 fatty acids, vitamins A, D, and B12, and minerals such as iron and selenium. Each egg is hand-checked for quality to ensure freshness, superior taste, and a rich, deep yolk color. Perfect for baking, cooking, or enjoying boiled or scrambled, these eggs bring the wholesome goodness of the farm straight to your kitchen. Raised without hormones or antibiotics, they support ethical farming practices and sustainable agriculture, making them not only healthy for you but good for the planet as well.",
-                        "delivery": "Next-day delivery available",
-                        "stock": "In Stock",
-                        "popular": true
+                        "description": "Farm-fresh brown eggs from Layers. Rich in omega-3 and vitamins. Per Crate",
+                        "description1": "Our Medium and Large Eggs are carefully collected from free-range hens that roam freely on lush pastures. Packed with protein, omega-3, vitamins, and minerals. Perfect for baking, cooking, or boiled eggs. Raised without hormones or antibiotics.",
+                        "delivery": "Delivery options available"
                     },
                     {
                         "id": 2,
-                        "name": "White Leghorn Chicks",
+                        "name": "Layers",
                         "category": "birds",
-                        "price": 3.49,
+                        "price": 90,
                         "rating": 4.8,
                         "reviews": 95,
                         "features": ["vaccinated", "hormone_free", "local"],
                         "image": "../../assets/image2.jpg",
-                        "description": "Healthy day-old White Leghorn chicks. Excellent egg layers.",
-                        "description1": "These Healthy day-old White Leghorn chicks are carefully raised to ensure strong, vibrant, and robust starters for your flock. Known for their exceptional egg-laying abilities, these chicks grow quickly and adapt well to both small backyard coops and larger poultry farms. They are vaccinated and raised hormone-free, ensuring your flock’s health and safety. With proper care, these chicks will become highly productive layers, providing fresh, high-quality eggs consistently. Their hardy nature, friendly temperament, and resilience to common poultry diseases make them ideal for both beginners and experienced poultry keepers. Each chick is hand-checked to ensure quality and vitality, giving you peace of mind as you expand your poultry farm or backyard flock.",
-                        "delivery": "Same-day shipping",
-                        "stock": "Limited",
-                        "popular": true
+                        "description": "Healthy Layers. Excellent egg layers. 1 goes for GHS90 and 3 goes for GHS200",
+                        "description1": "These Healthy day-old Layers are raised to ensure strong and productive starters for your flock. Vaccinated and hormone-free, perfect for beginners and experienced poultry keepers. Each chick is hand-checked to ensure quality and vitality.",
+                        "delivery": "Delivery options available"
                     },
                     {
                         "id": 3,
-                        "name": "Organic Chicken Breast",
+                        "name": "Broiler Breast",
                         "category": "meat",
-                        "price": 12.99,
+                        "price": 150,
                         "rating": 4.7,
                         "reviews": 204,
                         "features": ["organic", "hormone_free", "local"],
                         "image": "../../assets/image3.jpg",
-                        "description": "Boneless, skinless organic chicken breast. Raised without antibiotics.",
-                        "description1": "Our Boneless, Skinless Organic Chicken Breast comes from chickens raised on certified organic farms, free from antibiotics, hormones, and artificial additives. These chickens are fed a natural, non-GMO diet and are raised in spacious, humane conditions that allow them to roam freely. The result is tender, juicy, and flavorful chicken breast with a clean, wholesome taste perfect for healthy meals. Ideal for grilling, baking, sautéing, or stir-frying, this organic chicken breast is packed with high-quality protein and essential nutrients. Every piece is carefully hand-trimmed and packaged to ensure maximum freshness, making it a nutritious and ethical choice for families, fitness enthusiasts, and anyone who values sustainably sourced poultry.",
-                        "delivery": "2-day delivery",
-                        "stock": "In Stock",
-                        "popular": false
+                        "description": "Boneless, skinless organic broiler breast. Raised without antibiotics.",
+                        "description1": "Our Broiler Breast comes from chickens raised on certified organic farms, free from antibiotics and hormones. Perfect for grilling, baking, sautéing, or stir-frying. Tender, juicy, and flavorful.",
+                        "delivery": "Delivery options available"
                     },
                     {
                         "id": 4,
-                        "name": "Free Range Eggs (30pk)",
-                        "category": "eggs",
-                        "price": 15.99,
+                        "name": "Broiler Wings",
+                        "category": "meat",
+                        "price": 150,
                         "rating": 4.9,
                         "reviews": 167,
-                        "features": ["free_range", "organic", "fresh"],
+                        "features": ["organic", "hormone_free", "local"],
                         "image": "../../assets/image4.jpg",
-                        "description": "Large free-range eggs from happy hens. Perfect for baking.",
-                        "description1": "Our Free Range Eggs come from happy, healthy hens that roam freely on open pastures, enjoying a natural diet of grains, grasses, and insects. Each egg is carefully collected to ensure freshness, a rich golden yolk, and superior flavor. These large eggs are perfect for all your cooking and baking needs, from fluffy omelets and custards to cakes, pastries, and bread. Packed with high-quality protein, essential vitamins, and omega-3 fatty acids, they are a nutritious choice for your family. Raised without hormones or antibiotics, these eggs support sustainable and ethical farming practices. Enjoy the wholesome taste of farm-fresh eggs while contributing to a healthier, happier environment for our hens.",
-                        "delivery": "Next-day delivery",
-                        "stock": "In Stock",
-                        "popular": true
+                        "description": "Fresh organic broiler wings, perfect for grilling and frying.",
+                        "description1": "Our Broiler Wings are tender and juicy, raised on organic farms without hormones or antibiotics. Ideal for grilling, frying, or roasting. Packed with protein and natural flavor.",
+                        "delivery": "Delivery options available"
                     },
                     {
                         "id": 5,
-                        "name": "Rhode Island Red Pullets",
-                        "category": "birds",
-                        "price": 4.99,
+                        "name": "Broiler Thighs & Drumstick",
+                        "category": "meat",
+                        "price": 150,
                         "rating": 4.6,
                         "reviews": 78,
                         "features": ["vaccinated", "local"],
                         "image": "../../assets/image5.jpg",
-                        "description": "Robust Rhode Island Red pullets. Dual-purpose breed.",
-                        "description1": "Our robust Rhode Island Red pullets are a dual-purpose breed, prized for both their excellent egg-laying capabilities and their hearty meat quality. These young hens are vaccinated and raised in healthy, spacious environments, ensuring strong growth, vitality, and resilience to common poultry diseases. Known for their calm temperament and adaptability, they thrive in backyard flocks as well as larger farm settings. With proper care, these pullets will grow into productive layers, providing a consistent supply of brown eggs, while also offering quality meat if needed. Ideal for farmers and hobbyists alike, Rhode Island Red pullets are a reliable, versatile, and sustainable choice for anyone looking to build a healthy and productive flock.",
-                        "delivery": "Next-day shipping",
-                        "stock": "In Stock",
-                        "popular": false
+                        "description": "Tender broiler thighs and drumsticks, ready for cooking.",
+                        "description1": "Our Broiler Thighs & Drumsticks come from healthy chickens, vaccinated and locally raised. Perfect for stews, grilling, or roasting. Juicy, flavorful, and nutritious.",
+                        "delivery": "Next-day shipping"
                     },
                     {
                         "id": 6,
-                        "name": "Whole Organic Chicken",
+                        "name": "Broiler Neck, Feet and Back",
                         "category": "meat",
-                        "price": 24.99,
+                        "price": 100,
                         "rating": 4.8,
                         "reviews": 142,
                         "features": ["organic", "hormone_free", "free_range"],
                         "image": "../../assets/image6.jpg",
-                        "description": "Whole organic chicken. Perfect for roasting and family meals.",
-                        "description1": "Our Whole Organic Chicken is raised on certified organic farms, free from antibiotics, hormones, and synthetic additives. These chickens are allowed to roam freely in spacious pastures, feeding on a natural diet of grains and greens, which results in tender, juicy, and flavorful meat. Perfect for roasting, baking, or slow-cooking, this whole chicken makes a wholesome centerpiece for family meals, holiday dinners, or special occasions. Packed with high-quality protein and essential nutrients, it is a healthy and ethical choice for conscious eaters. Each bird is carefully hand-processed and packaged to ensure maximum freshness, offering a rich, satisfying taste while supporting sustainable and humane farming practices.",
-                        "delivery": "2-day delivery",
-                        "stock": "In Stock",
-                        "popular": true
+                        "description": "Whole chicken parts including neck, feet, and back.",
+                        "description1": "Our Broiler Neck, Feet, and Back are from organic, free-range chickens. Perfect for soups, stews, or traditional dishes. Fresh, flavorful, and ethically raised.",
+                        "delivery": "2-day delivery"
+                    },
+                    {
+                        "id": 7,
+                        "name": "Full Broiler",
+                        "category": "meat",
+                        "price": 180,
+                        "rating": 4.8,
+                        "reviews": 142,
+                        "features": ["organic", "hormone_free", "free_range"],
+                        "image": "../../assets/image7.jpg",
+                        "description": "Whole organic broiler chicken, ideal for roasting.",
+                        "description1": "Our Full Broiler is raised on certified organic farms, free from antibiotics and hormones. Perfect for roasting, baking, or slow-cooking. Fresh, tender, and ethically sourced.",
+                        "delivery": "2-day delivery"
                     }
                 ]
+
     },
     "testimonialSection": {
         "title": "What They’re Saying",
@@ -379,6 +385,119 @@
                         "snippet": "A look at how we operate and deliver value..."
                     }
                 ]
+        }
+    },
+
+
+    "aboutPage": {
+        "banner": {
+            "title": "ABOUT PAGE",
+                "image": "../../assets/banner1.jpg"
+        },
+        "story": {
+            "since": "Since 1985",
+                "title": "This Is Our Story",
+                    "paragraphs": [
+                        "NAYA Success Axis is an Agribusiness that started as a backyard poultry farm in 2018. It was registered as a fulltime business in April 2019 at the Registrar General Department. It Currently has 2 branches in Accra – Adenta and Aburi - Mariakrom in the Eastern Region. NAYA Success Axis aims to be one of the poultry giants in Ghana and the subregion. ",
+                        "The core business is Poultry farming & processing to increase the shelf-life of chicken and add variety to locally produced chicken. The business employs Four(4) fulltime staff and Four(4) other part-time and casual staff. We have over Thirty(30) others working indirectly along our value chain operations."
+                    ]
+        },
+        "mission": {
+            "title": "Our Mission",
+                "description": "To provide convenient, ready-to-consume, locally raised (and spiced) Chicken with longer shelf-life and Eggs to consumers. ",
+                    "points": [
+                        "Deliver premium quality poultry products",
+                        "Promote sustainable farming practices",
+                        "Ensure animal welfare in all operations",
+                        "Support local farming communities"
+                    ]
+        },
+        "vision": {
+            "title": "Our Vision",
+                "description": "“Leader in locally produced poultry products, changing mindsets, and making positive impact in communities”",
+                    "points": [
+                        "Lead in sustainable poultry farming",
+                        "Expand nationwide with quality standards",
+                        "Innovate with eco-friendly technologies",
+                        "Educate next-generation farmers"
+                    ]
+        },
+        "values_section": {
+            "title": "Products",
+                "description": "The business currently has the following products on the shelf;",
+                    "products": [
+                        "Poultry / Chicken Eggs",
+                        "Broiler and Layer Chickens",
+                        "Charcoal Smoked Chicken",
+                        "Spicy Grilled Chicken",
+                        "Chicken Chips and Khebabs",
+                        "Poultry Manure",
+                        "Dog Food from the Offal"
+                    ],
+                        "problem": "Local poultry processors in Ghana lack the infrastructure and equipment to produce chicken cuts and other processed options and varieties preferred by most consumers.",
+                            "solution": "Crunchy Chicken Chips made with locally reared chicken, spiced, dried, and thinly sliced to last for not less than one month. Our solution adds value to chicken to increase shelf-life and reduce post-harvest losses."
+        }
+    },
+    "contactPage": {
+        "banner": {
+            "title": "CONTACT PAGE",
+                "image": "/assets/blog4.jpg"
+        },
+
+        "leftContent": {
+            "heading": "Produced in Ghana by",
+                "description": "We are dedicated to providing fresh, organic, and hygienically processed poultry products. Proudly produced in Ghana with high standards to serve homes, restaurants, and marketplaces.",
+                    "location": "Adenta, Accra - Ghana",
+                        "postalCode": "GD-0280-880",
+                            "pickUpLocation": "Pick-up Location: Adenta",
+                                "deliveryInfo": "Delivery options available",
+                                    "products": [
+                                        "Chicken Drumstick",
+                                        "Chicken Wings",
+                                        "Chicken Breast",
+                                        "Chicken Thighs",
+                                        "Chicken Feet",
+                                        "Chicken Back & Neck"
+                                    ]
+        },
+
+        "contacts": {
+            "phoneNumbers": ["024 438 4928", "059 711 3385"],
+                "whatsapp": "024 438 4928",
+                    "email": "nayasuccessaxis@gmail.com",
+                        "facebook": "Naya Success Axis Farms",
+                            "instagram": "nayasuccessaxisfarms"
+        },
+
+        "rightForm": {
+            "title": "Send Us a Message",
+                "fields": [
+                    {
+                        "name": "name",
+                        "label": "Full Name",
+                        "type": "text",
+                        "required": true
+                    },
+                    {
+                        "name": "address",
+                        "label": "Address",
+                        "type": "text",
+                        "required": true
+                    },
+                    {
+                        "name": "phone",
+                        "label": "Phone Number",
+                        "type": "tel",
+                        "required": true
+                    },
+                    {
+                        "name": "message",
+                        "label": "Your Message",
+                        "type": "textarea",
+                        "required": true
+                    }
+                ],
+                    "buttonText": "Send Message"
         }
     }
 }
