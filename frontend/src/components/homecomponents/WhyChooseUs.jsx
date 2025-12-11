@@ -48,7 +48,7 @@ const AboutSection = () => {
               <span className="inline-block px-4 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold mb-4">
                 Why Choose Us
               </span>
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 md:mb-6">
                 {data.title}
               </h2>
             </div>
@@ -141,7 +141,7 @@ const AboutSection = () => {
               <span className="inline-block px-4 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold mb-4">
                 They are Organic
               </span>
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 mt-3">
+              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 md:mb-6 mt-3">
                 {data.title2}
               </h1>
             </div>

@@ -61,6 +61,127 @@
                     }
                 ]
     },
+    "productsPage": {
+        "banner1": "../../assets/banner1.jpg",
+            "categories": [
+                {
+                    "id": "all",
+                    "name": "All Products",
+                    "icon": "ArrowRight",
+                    "count": 12
+                },
+                {
+                    "id": "eggs",
+                    "name": "Fresh Eggs",
+                    "icon": "Egg",
+                    "count": 4
+                },
+                {
+                    "id": "birds",
+                    "name": "Live Birds",
+                    "icon": "Bird",
+                    "count": 5
+                },
+                {
+                    "id": "meat",
+                    "name": "Poultry Meat",
+                    "icon": "Drumstick",
+                    "count": 3
+                }
+            ],
+                "products": [
+                    {
+                        "id": 1,
+                        "name": "Premium Brown Eggs",
+                        "category": "eggs",
+                        "price": 5.99,
+                        "rating": 4.9,
+                        "reviews": 128,
+                        "features": ["organic", "free_range", "fresh"],
+                        "image": "../../assets/image1.jpg",
+                        "description": "Farm-fresh brown eggs from free-range hens. Rich in omega-3 and vitamins.",
+                        "description1": "Our Premium Brown Eggs are carefully collected from free-range hens that roam freely on lush pastures, feeding on a natural diet rich in grains and greens. These eggs are packed with essential nutrients including high-quality protein, omega-3 fatty acids, vitamins A, D, and B12, and minerals such as iron and selenium. Each egg is hand-checked for quality to ensure freshness, superior taste, and a rich, deep yolk color. Perfect for baking, cooking, or enjoying boiled or scrambled, these eggs bring the wholesome goodness of the farm straight to your kitchen. Raised without hormones or antibiotics, they support ethical farming practices and sustainable agriculture, making them not only healthy for you but good for the planet as well.",
+                        "delivery": "Next-day delivery available",
+                        "stock": "In Stock",
+                        "popular": true
+                    },
+                    {
+                        "id": 2,
+                        "name": "White Leghorn Chicks",
+                        "category": "birds",
+                        "price": 3.49,
+                        "rating": 4.8,
+                        "reviews": 95,
+                        "features": ["vaccinated", "hormone_free", "local"],
+                        "image": "../../assets/image2.jpg",
+                        "description": "Healthy day-old White Leghorn chicks. Excellent egg layers.",
+                        "description1": "These Healthy day-old White Leghorn chicks are carefully raised to ensure strong, vibrant, and robust starters for your flock. Known for their exceptional egg-laying abilities, these chicks grow quickly and adapt well to both small backyard coops and larger poultry farms. They are vaccinated and raised hormone-free, ensuring your flock’s health and safety. With proper care, these chicks will become highly productive layers, providing fresh, high-quality eggs consistently. Their hardy nature, friendly temperament, and resilience to common poultry diseases make them ideal for both beginners and experienced poultry keepers. Each chick is hand-checked to ensure quality and vitality, giving you peace of mind as you expand your poultry farm or backyard flock.",
+                        "delivery": "Same-day shipping",
+                        "stock": "Limited",
+                        "popular": true
+                    },
+                    {
+                        "id": 3,
+                        "name": "Organic Chicken Breast",
+                        "category": "meat",
+                        "price": 12.99,
+                        "rating": 4.7,
+                        "reviews": 204,
+                        "features": ["organic", "hormone_free", "local"],
+                        "image": "../../assets/image3.jpg",
+                        "description": "Boneless, skinless organic chicken breast. Raised without antibiotics.",
+                        "description1": "Our Boneless, Skinless Organic Chicken Breast comes from chickens raised on certified organic farms, free from antibiotics, hormones, and artificial additives. These chickens are fed a natural, non-GMO diet and are raised in spacious, humane conditions that allow them to roam freely. The result is tender, juicy, and flavorful chicken breast with a clean, wholesome taste perfect for healthy meals. Ideal for grilling, baking, sautéing, or stir-frying, this organic chicken breast is packed with high-quality protein and essential nutrients. Every piece is carefully hand-trimmed and packaged to ensure maximum freshness, making it a nutritious and ethical choice for families, fitness enthusiasts, and anyone who values sustainably sourced poultry.",
+                        "delivery": "2-day delivery",
+                        "stock": "In Stock",
+                        "popular": false
+                    },
+                    {
+                        "id": 4,
+                        "name": "Free Range Eggs (30pk)",
+                        "category": "eggs",
+                        "price": 15.99,
+                        "rating": 4.9,
+                        "reviews": 167,
+                        "features": ["free_range", "organic", "fresh"],
+                        "image": "../../assets/image4.jpg",
+                        "description": "Large free-range eggs from happy hens. Perfect for baking.",
+                        "description1": "Our Free Range Eggs come from happy, healthy hens that roam freely on open pastures, enjoying a natural diet of grains, grasses, and insects. Each egg is carefully collected to ensure freshness, a rich golden yolk, and superior flavor. These large eggs are perfect for all your cooking and baking needs, from fluffy omelets and custards to cakes, pastries, and bread. Packed with high-quality protein, essential vitamins, and omega-3 fatty acids, they are a nutritious choice for your family. Raised without hormones or antibiotics, these eggs support sustainable and ethical farming practices. Enjoy the wholesome taste of farm-fresh eggs while contributing to a healthier, happier environment for our hens.",
+                        "delivery": "Next-day delivery",
+                        "stock": "In Stock",
+                        "popular": true
+                    },
+                    {
+                        "id": 5,
+                        "name": "Rhode Island Red Pullets",
+                        "category": "birds",
+                        "price": 4.99,
+                        "rating": 4.6,
+                        "reviews": 78,
+                        "features": ["vaccinated", "local"],
+                        "image": "../../assets/image5.jpg",
+                        "description": "Robust Rhode Island Red pullets. Dual-purpose breed.",
+                        "description1": "Our robust Rhode Island Red pullets are a dual-purpose breed, prized for both their excellent egg-laying capabilities and their hearty meat quality. These young hens are vaccinated and raised in healthy, spacious environments, ensuring strong growth, vitality, and resilience to common poultry diseases. Known for their calm temperament and adaptability, they thrive in backyard flocks as well as larger farm settings. With proper care, these pullets will grow into productive layers, providing a consistent supply of brown eggs, while also offering quality meat if needed. Ideal for farmers and hobbyists alike, Rhode Island Red pullets are a reliable, versatile, and sustainable choice for anyone looking to build a healthy and productive flock.",
+                        "delivery": "Next-day shipping",
+                        "stock": "In Stock",
+                        "popular": false
+                    },
+                    {
+                        "id": 6,
+                        "name": "Whole Organic Chicken",
+                        "category": "meat",
+                        "price": 24.99,
+                        "rating": 4.8,
+                        "reviews": 142,
+                        "features": ["organic", "hormone_free", "free_range"],
+                        "image": "../../assets/image6.jpg",
+                        "description": "Whole organic chicken. Perfect for roasting and family meals.",
+                        "description1": "Our Whole Organic Chicken is raised on certified organic farms, free from antibiotics, hormones, and synthetic additives. These chickens are allowed to roam freely in spacious pastures, feeding on a natural diet of grains and greens, which results in tender, juicy, and flavorful meat. Perfect for roasting, baking, or slow-cooking, this whole chicken makes a wholesome centerpiece for family meals, holiday dinners, or special occasions. Packed with high-quality protein and essential nutrients, it is a healthy and ethical choice for conscious eaters. Each bird is carefully hand-processed and packaged to ensure maximum freshness, offering a rich, satisfying taste while supporting sustainable and humane farming practices.",
+                        "delivery": "2-day delivery",
+                        "stock": "In Stock",
+                        "popular": true
+                    }
+                ]
+    },
     "testimonialSection": {
         "title": "What They’re Saying",
             "testimonials": [
@@ -206,5 +327,58 @@
                             "date": "2025-01-29"
                         }
                     ]
+    },
+    "aboutSection": {
+        "home": {
+            "title": "Welcome to Our Store",
+                "subtitle": "Quality products curated just for you",
+                    "heroImage": "/images/hero.jpg"
+        },
+
+        "products": {
+            "title": "Our Products",
+                "items": [
+                    {
+                        "id": 1,
+                        "name": "Product One",
+                        "price": 49.99,
+                        "image": "/images/product1.jpg"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Product Two",
+                        "price": 59.99,
+                        "image": "/images/product2.jpg"
+                    }
+                ]
+        },
+
+        "about": {
+            "title": "About Us",
+                "description": "We are a company dedicated to providing quality products and exceptional customer service."
+        },
+
+        "contact": {
+            "title": "Contact Us",
+                "email": "support@example.com",
+                    "phone": "+233 000 000 000",
+                        "address": "Accra, Ghana"
+        },
+
+        "blog": {
+            "title": "Our Blog",
+                "posts": [
+                    {
+                        "id": 1,
+                        "title": "How to Choose Quality Products",
+                        "snippet": "Learn how to identify the best products for your needs..."
+                    },
+                    {
+                        "id": 2,
+                        "title": "Behind the Scenes",
+                        "snippet": "A look at how we operate and deliver value..."
+                    }
+                ]
+        }
     }
 }

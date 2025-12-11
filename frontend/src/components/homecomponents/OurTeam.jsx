@@ -175,12 +175,6 @@ const OurTeam = () => {
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {member.name}
                     </h3>
-
-                    <div className="flex items-center">
-                      <button className="px-4 py-2 text-sm font-medium text-lime-500 hover:text-lime-600 transition">
-                        Contact {member.name.split(" ")[0]}
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>

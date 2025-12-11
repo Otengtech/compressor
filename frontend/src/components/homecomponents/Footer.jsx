@@ -9,6 +9,7 @@ import {
   Truck,
   CheckCircle
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -53,7 +54,7 @@ const Footer = () => {
             {[
               {
                 title: "Company",
-                links: ['About Us', 'Our Team', 'Careers', 'Press', 'Blog']
+                links: ['About', 'Team', 'Contact', 'Review', 'Blog']
               },
               {
                 title: "Products",
@@ -61,7 +62,7 @@ const Footer = () => {
               },
               {
                 title: "Support",
-                links: ['FAQ', 'Shipping', 'Returns', 'Contact', 'Farm Guide']
+                links: ['FAQ', 'Privacy', 'Products', 'Returns']
               }
             ].map((column, idx) => (
               <div key={idx}>
@@ -69,12 +70,12 @@ const Footer = () => {
                 <ul className="space-y-3">
                   {column.links.map((link, linkIdx) => (
                     <li key={linkIdx}>
-                      <a 
-                        href="#" 
+                      <Link 
+                        to={`/${link.toLowerCase()}`} 
                         className="text-gray-400 hover:text-green-400 transition-colors"
                       >
                         {link}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -88,7 +89,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row justify-between items-center">
               
               <div className="text-gray-400 text-sm mb-4 md:mb-0">
-                © {currentYear} Succes Axis Foods. All rights reserved.
+                © {currentYear} Naya Axis Foods. All rights reserved.
               </div>
               
               {/* Social Media */}
@@ -102,13 +103,6 @@ const Footer = () => {
                 <a href="#" className="text-gray-400 hover:text-[#f4b63c] transition-colors">
                   <Instagram className="w-5 h-5" />
                 </a>
-              </div>
-              
-              {/* Legal */}
-              <div className="flex space-x-6 text-sm text-gray-500">
-                <a href="#" className="hover:text-[#f4b63c] transition-colors">Privacy</a>
-                <a href="#" className="hover:text-[#f4b63c] transition-colors">Terms</a>
-                <a href="#" className="hover:text-[#f4b63c] transition-colors">Cookies</a>
               </div>
 
             </div>
