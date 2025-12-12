@@ -11,6 +11,7 @@ import ReviewPage from "./pages/ReviewPage";
 import BlogPage from "./pages/BlogPage";
 import FAQPage from "./pages/FAQPage";
 import TeamPage from "./pages/TeamPage";
+import OrdersPage from "./pages/OrdersPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import Loader from "./components/Loader";
 import TopButton from "./components/TopButton";
@@ -35,6 +36,7 @@ function App() {
           <Route path="/review" element={<ReviewPage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/faq" element={<FAQPage />} />
+          <Route path="/order" element={<OrdersPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
       )}

@@ -8,8 +8,8 @@ dotenv.config();
 
 const app = express();
 const PORT = 5000;
-// const clientUrl = "http://localhost:5173"; // Update if your frontend runs elsewhere
-const clientUrl = "https://portryfarm.vercel.app"; // Update if your frontend runs elsewhere
+// const clientUrl = "http://localhost:5173"; // 
+const clientUrl = "https://portryfarm.vercel.app";
 
 app.use(cors({
   origin: clientUrl,
@@ -68,6 +68,12 @@ app.get("/api/content/team", (req, res) => {
 // Endpoint for review page
 app.get("/api/content/review", (req, res) => {
   const filePath = path.join(__dirname, "content/review.json");
+  readJSONFile(filePath, res);
+});
+
+// Endpoint for order page
+app.get("/api/content/order", (req, res) => {
+  const filePath = path.join(__dirname, "content/order.json");
   readJSONFile(filePath, res);
 });
 

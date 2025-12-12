@@ -1,7 +1,7 @@
 {
     "heroSection": {
         "heroImage": "../../assets/heroimage.jpg",
-            "title": "NAYA SUCCESS AXIS",
+            "title": "NAYA AXIS FOODS",
                 "description": "Experience quality eggs, meats and chicks nurtured with care and delivered to you."
     },
     "whyChooseUs": {
@@ -96,27 +96,27 @@
                 "images": [
                     {
                         "id": "1",
-                        "img": "../../assets/image1.jpg"
+                        "img": "../../assets/tighs.jpg"
                     },
                     {
                         "id": "2",
-                        "img": "../../assets/image2.jpg"
+                        "img": "../../assets/wing.jpg"
                     },
                     {
                         "id": "3",
-                        "img": "../../assets/image3.jpg"
+                        "img": "../../assets/drumsticks.jpg"
                     },
                     {
                         "id": "4",
-                        "img": "../../assets/image4.jpg"
+                        "img": "../../assets/feet.jpg"
                     },
                     {
                         "id": "5",
-                        "img": "../../assets/image5.jpg"
+                        "img": "../../assets/breast.jpg"
                     },
                     {
                         "id": "6",
-                        "img": "../../assets/image6.jpg"
+                        "img": "../../assets/smoke.jpg"
                     }
                 ]
     },

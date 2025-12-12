@@ -26,10 +26,10 @@ const Footer = () => {
             {/* Brand */}
             <div className="lg:col-span-2">
               <h2 className="text-3xl font-bold mb-4">
-                Succes Axis<span className="text-lime-500"> Foods</span>
+                Naya Axis <span className="text-lime-500"> Foods</span>
               </h2>
               <p className="text-gray-400 mb-6 max-w-md">
-                Providing premium poultry products with unmatched quality and service since 1985.
+                Providing poultry products with unmatched quality and service since 2018.
               </p>
               
               {/* Trust Badges */}
@@ -57,11 +57,11 @@ const Footer = () => {
               },
               {
                 title: "Products",
-                links: ['Fresh Eggs', 'Live Birds', 'Poultry Feed', 'Equipment', 'Accessories']
+                links: ['Fresh Eggs', 'Live Poultry', 'Chicken Feet']
               },
               {
                 title: "Support",
-                links: ['FAQ', 'Privacy', 'Products', 'Returns']
+                links: ['FAQ', 'Privacy', 'Products', 'Orders']
               }
             ].map((column, idx) => (
               <div key={idx}>
