@@ -10,7 +10,7 @@ const ResponsiveNavbar = () => {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Blog", href: "/blog" },
-    { label: "Our Service", href: "/products" },
+    { label: "Products", href: "/products" },
     { label: "Contact", href: "/contact" },
     { label: "About", href: "/about" },
   ];

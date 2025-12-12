@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import Loader from "../components/Loader";
 import { ContentContext } from "../context/ContentContext";
 import {
   MapPin,
@@ -16,7 +17,6 @@ import Footer from "../components/homecomponents/Footer";
 import { useScrollReveal } from "../animation/useScrollReveal";
 
 const ContactPage = () => {
-  const { content, loading } = useContext(ContentContext);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,14 +24,26 @@ const ContactPage = () => {
     message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const {contactContent, loadingContact, loadPageContent} = useContext(ContentContext);
+
+  useEffect(()=>{
+    loadPageContent("contact");
+  }, [])
 
   const bannerRef = useScrollReveal();
   const leftRef = useScrollReveal();
   const formRef = useScrollReveal();
 
-  if (loading || !content) return null;
+  if (loadingContact) return <Loader />;
 
-  const data = content.contactPage;
+  const data = contactContent?.contactPage;
+  
+  if (!data)
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <p className="text-xl text-gray-600">Error loading Contact Page.</p>
+      </div>
+    );
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

@@ -11,22 +11,21 @@ import {
 } from "lucide-react";
 import { useScrollReveal } from "../../animation/useScrollReveal";
 
-const OurTeam = () => {
-  const { content, loading } = useContext(ContentContext);
-  const data = content.ourteamSection;
+const OurTeam = ({ content }) => {
+  const { loading } = useContext(ContentContext);
+  const data = content;
+
+
   const titleRef = useScrollReveal();
-
-  // SCROLL REVEAL REFS
   const textRef = useScrollReveal();
-  const statsRef = useScrollReveal();
-
-  // refs for each member card
   const cardRefs = Array.from({ length: data.members.length }, () =>
     useScrollReveal()
   );
 
-  if (loading || !content) return null;
+  // Return nothing if loading or no data
+  if (loading || !data || !data.members) return null;
 
+  // Social icon component
   const SocialIcon = ({ platform, size = "h-4 w-4" }) => {
     const icons = {
       facebook: Facebook,
@@ -35,16 +34,15 @@ const OurTeam = () => {
       instagram: Instagram,
       linkedin: Linkedin,
     };
-    const Icon = icons[platform];
+    const Icon = icons[platform.toLowerCase()];
     return Icon ? <Icon className={size} /> : null;
   };
 
   return (
     <section className="py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* TOP CONTENT - LEFT SIDE CONTENT ONLY */}
+        {/* TOP CONTENT */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start mb-16">
-          {/* LEFT CONTENT - Takes full width on mobile, reduced on desktop */}
           <div className="lg:w-2/3 mx-auto">
             {/* TITLE */}
             <div
@@ -56,11 +54,9 @@ const OurTeam = () => {
                   Our Experts
                 </span>
               </div>
-
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight text-center lg:text-left">
                 {data.title}
               </h1>
-
               <div className="h-1 w-20 bg-lime-500 rounded-full mx-auto lg:mx-0"></div>
             </div>
 
@@ -100,36 +96,11 @@ const OurTeam = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Stats */}
-              {/* <div
-                ref={statsRef}
-                className="scroll-reveal opacity-0 translate-y-8 grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-100 max-w-2xl mx-auto lg:mx-0"
-              >
-                <div className="text-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="text-3xl font-bold text-lime-500">15+</div>
-                  <div className="text-sm text-gray-500 font-medium">
-                    Years Experience
-                  </div>
-                </div>
-                <div className="text-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="text-3xl font-bold text-lime-500">100%</div>
-                  <div className="text-sm text-gray-500 font-medium">
-                    Quality Products
-                  </div>
-                </div>
-                <div className="text-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                  <div className="text-3xl font-bold text-lime-500">24/7</div>
-                  <div className="text-sm text-gray-500 font-medium">
-                    Support
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
 
-        {/* TEAM GRID - BELOW THE CONTENT */}
+        {/* TEAM GRID */}
         <div className="w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-6 gap-6 max-w-4xl mx-auto">
             {data.members.map((member, index) => (
@@ -158,9 +129,9 @@ const OurTeam = () => {
 
                     {/* Social Icons */}
                     <div className="absolute bottom-4 right-4 z-20 flex space-x-2">
-                      {member.socials.map((social) => (
+                      {member.socials.map((social, i) => (
                         <a
-                          key={social}
+                          key={i}
                           href="#"
                           className="p-2 bg-white/90 rounded-full shadow-md hover:bg-lime-500 hover:text-white transition"
                         >

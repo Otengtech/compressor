@@ -4,12 +4,12 @@ import { Star, ArrowRight} from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "../../animation/useScrollReveal";
 
-const TestimonialSection = () => {
-  const { content, loading } = useContext(ContentContext);
+const TestimonialSection = ({content}) => {
+  const { loading } = useContext(ContentContext);
 
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
-  const { title, testimonials, images } = content.testimonialSection;
+  const { title, testimonials, images } = content;
 
   // Reveal refs
   const titleRef = useScrollReveal();

@@ -1,37 +1,62 @@
-import React, { useState, useMemo, useContext } from "react";
+import React, { useState, useEffect, useMemo, useContext } from "react";
 import { ContentContext } from "../context/ContentContext";
+import Loader from "../components/Loader";
 import Footer from "../components/homecomponents/Footer";
 import bannerVideo from "../video/video.mp4";
 
 const ProductsSection = () => {
-  const { content, loading } = useContext(ContentContext);
+  const { productsContent, loadingProducts, loadPageContent } =
+    useContext(ContentContext);
+
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedProduct, setSelectedProduct] = useState(null); // For modal
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const { categories, products } = content.productsPage;
+  useEffect(() => {
+    loadPageContent("products");
+  }, []);
 
+  const pageData = productsContent?.productsPage;
+  const categories = pageData?.categories || [];
+  const products = pageData?.products || [];
+
+  // Filter products
   const filteredProducts = useMemo(() => {
-    let filtered = [...products];
+    let list = [...products];
 
     if (activeCategory !== "all") {
-      filtered = filtered.filter((p) => p.category === activeCategory);
+      list = list.filter((p) => p.category === activeCategory);
     }
 
-    if (searchQuery) {
-      filtered = filtered.filter((p) =>
+    if (searchQuery.trim()) {
+      list = list.filter((p) =>
         p.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
 
-    return filtered;
-  }, [activeCategory, searchQuery, products]);
+    return list;
+  }, [products, activeCategory, searchQuery]);
 
-  if (loading || !content) return null;
+  // Get category name by id
+  const getCategoryName = (categoryId) => {
+    const category = categories.find((cat) => cat.id === categoryId);
+    return category ? category.name : "Uncategorized";
+  };
+
+  if (loadingProducts) return <Loader />;
+
+  if (!productsContent || !pageData) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <p className="text-xl text-gray-600">Error loading products page.</p>
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="relative w-full h-[60vh] overflow-hidden">
+    <div className="min-h-screen bg-lime-100">
+      {/* Hero Banner */}
+      <div className="relative w-full h-[70vh] overflow-hidden">
         <video
           className="w-full h-full object-cover"
           src={bannerVideo}
@@ -42,233 +67,317 @@ const ProductsSection = () => {
         />
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
           <h1 className="text-white text-4xl md:text-6xl font-bold">
-            SERVICES PAGE
+            PRODUCTS PAGE
           </h1>
         </div>
       </div>
 
-      {/* Controls Section */}
-      <div className="container mx-auto px-4 py-8">
-        {/* Filter & Search */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-10 bg-white p-6 rounded-xl shadow-md">
-          <div className="mb-6 md:mb-0 md:mr-6 w-full md:w-auto">
-            <label
-              htmlFor="category-select"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Filter by Category
-            </label>
-            <div className="relative">
-              <select
-                id="category-select"
-                onChange={(e) => setActiveCategory(e.target.value)}
-                value={activeCategory}
-                className="appearance-none w-full md:w-64 bg-white border border-gray-300 rounded-lg py-3 px-4 pr-10 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
-              >
-                <option value="all">All Categories</option>
-                {categories.map((cat) => (
-                  <option key={cat.id} value={cat.id}>
-                    {cat.name}
-                  </option>
-                ))}
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+      <div className="container mx-auto px-4 py-12">
+        {/* Search and Filter Section */}
+        <div className="bg-white rounded-2xl shadow-xl p-6 mb-10">
+          <div className="flex flex-col lg:flex-row gap-6">
+            {/* Search Input */}
+            <div className="w-full">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Search Products
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search products..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full border-2 border-gray-200 rounded-xl py-3 px-4 pl-12 focus:border-lime-500 focus:ring-lime-200 outline-none transition"
+                />
                 <svg
-                  className="fill-current h-4 w-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full md:w-auto">
-            <label
-              htmlFor="search-input"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Search Products
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <svg
-                  className="h-5 w-5 text-gray-400"
+                  className="absolute left-4 top-3.5 w-5 h-5 text-gray-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  ></path>
+                  />
                 </svg>
               </div>
-              <input
-                id="search-input"
-                type="text"
-                placeholder="Search by product name..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 w-full md:w-80 bg-white border border-gray-300 rounded-lg py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
             </div>
           </div>
-
-          <div className="mt-6 md:mt-10">
-            <span className="inline-block bg-blue-100 text-blue-800 text-sm font-medium px-4 py-2 rounded-full">
-              {filteredProducts.length === 1 ? "Product" : "Products"} Found
-            </span>
-          </div>
         </div>
 
-        {/* Category Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8 justify-center">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2 rounded-full font-medium transition-colors ${
-                activeCategory === cat.id
-                  ? "bg-lime-500 text-white"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-              }`}
-            >
-              {cat.name}
-            </button>
-          ))}
-        </div>
-
-        {/* Products Grid */}
+        {/* Product Grid */}
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-xl shadow-md cursor-pointer overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
+                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-lime-200 cursor-pointer transform hover:-translate-y-1"
+                onClick={() => setSelectedProduct(product)}
               >
-                <div className="h-48 bg-gray-200 flex items-center justify-center">
-                  {product.image ? (
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="h-full w-full object-cover"
-                    />
-                  ) : (
-                    <div className="text-gray-400">
-                      <svg
-                        className="h-16 w-16"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="1"
-                          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        ></path>
-                      </svg>
-                    </div>
-                  )}
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-bold text-gray-800">
-                      {product.name}
-                    </h3>
-                    <span className="text-lg font-bold text-lime-600">
-                      Ghs{product.price}
-                    </span>
-                  </div>
-                  <p className="text-gray-600 mb-4 line-clamp-2">
-                    {product.description}
-                  </p>
-                  <div className="flex justify-between items-center">
-                    <span className="inline-block bg-gray-100 text-gray-800 text-xs font-medium px-3 py-1 rounded-full">
-                      {categories.find((c) => c.id === product.category)
-                        ?.name || "Uncategorized"}
-                    </span>
-                    <button
-                      onClick={() => setSelectedProduct(product)}
-                      className="bg-lime-500 hover:bg-lime-600 text-white font-medium py-2 px-4 rounded-sm transition-colors"
+                {/* Product Image */}
+                <div className="relative h-56 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+
+                  {/* Status Badge */}
+                  <div className="absolute top-3 left-3">
+                    <span
+                      className={`px-3 py-1 rounded-full text-xs font-bold ${
+                        product.status === "Available Now"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-amber-100 text-amber-800"
+                      }`}
                     >
-                      View Details
-                    </button>
+                      {product.status}
+                    </span>
                   </div>
+
+                  {/* Category Badge */}
+                  <div className="absolute top-3 right-3">
+                    <span className="px-3 py-1 bg-black/70 backdrop-blur-sm rounded-full text-xs font-medium text-white">
+                      {product.category}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Product Info */}
+                <div className="p-5">
+                  <div className="flex justify-between items-start mb-3">
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-gray-900 transition-colors line-clamp-1">
+                        {product.name}
+                      </h3>
+                      {product.size && (
+                        <p className="text-sm text-gray-600 mt-1">
+                          {product.size}
+                        </p>
+                      )}
+                    </div>
+                    <div className="text-right ml-4">
+                      <div className="text-xl font-bold text-lime-600">
+                        GHS{product.price}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Delivery Info */}
+                  <div className="flex items-center text-sm text-gray-600 mb-4">
+                    <svg
+                      className="w-4 h-4 mr-2 text-lime-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    {product.delivery}
+                  </div>
+
+                  {/* View Details Button */}
+                  <button className="w-full bg-lime-50 hover:bg-lime-100 text-lime-500 font-semibold py-2.5 px-4 rounded-xl transition-colors duration-300 border border-lime-200 group-hover:border-lime-300">
+                    View Details
+                  </button>
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 bg-white rounded-xl shadow">
-            <svg
-              className="h-24 w-24 text-gray-300 mx-auto mb-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1"
-                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
-            <h3 className="text-2xl font-bold text-gray-700 mb-2">
-              No Products Found
+          <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
+            <div className="text-gray-400 mb-6">
+              <svg
+                className="w-20 h-20 mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1"
+                  d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-700 mb-3">
+              No products found
             </h3>
-            <p className="text-gray-500 max-w-md mx-auto">
-              We couldn't find any products matching your search. Try adjusting
-              your filters or search term.
+            <p className="text-gray-500 mb-6 max-w-md mx-auto">
+              Try adjusting your search or filter criteria to find what you're
+              looking for.
             </p>
+            <button
+              onClick={() => {
+                setActiveCategory("all");
+                setSearchQuery("");
+              }}
+              className="bg-lime-500 hover:bg-lime-600 text-white font-medium py-2.5 px-6 rounded-lg transition-colors"
+            >
+              Clear Filters
+            </button>
           </div>
         )}
       </div>
 
-      {/* Product Modal */}
+      {/* Product Details Modal */}
       {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
-          <div className="bg-white text-gray-700 rounded-xl relative max-w-lg max-h-[90vh] w-full flex flex-col">
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4 animate-fadeIn">
+          <div className="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative animate-slideUp">
             <button
+              className="absolute top-4 right-4 z-10 bg-white/80 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors"
               onClick={() => setSelectedProduct(null)}
-              className="absolute top-4 right-4 text-gray-800 text-2xl font-bold z-10 bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-md hover:bg-gray-100"
             >
-              ×
+              <svg
+                className="w-6 h-6 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
             </button>
 
-            {/* Scrollable content container */}
-            <div className="overflow-y-auto custom-scrollbar">
-              {selectedProduct.image && (
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Product Image */}
+              <div className="relative h-96 md:h-full min-h-96">
                 <img
                   src={selectedProduct.image}
                   alt={selectedProduct.name}
-                  className="w-full h-48 object-cover"
+                  className="absolute inset-0 w-full h-full object-cover rounded-l-2xl"
                 />
-              )}
-              <div className="p-6">
-                <h2 className="text-2xl font-bold mb-4">
-                  {selectedProduct.name}
-                </h2>
-                <p className="mb-2">
-                  <strong>Price:</strong> ${selectedProduct.price}
-                </p>
-                <p className="mb-2">
-                  <strong>Features:</strong>{" "}
-                  {selectedProduct.features.join(", ")}
-                </p>
-                <p className="mb-2">
-                  <strong>Description:</strong> {selectedProduct.description1}
-                </p>
+                <div className="absolute bottom-4 left-4">
+                  <span
+                    className={`px-4 py-2 rounded-full text-sm font-bold ${
+                      selectedProduct.status === "Available Now"
+                        ? "bg-green-100 text-green-500"
+                        : "bg-amber-100 text-amber-800"
+                    }`}
+                  >
+                    {selectedProduct.status}
+                  </span>
+                </div>
+              </div>
+
+              {/* Product Details */}
+              <div className="p-8">
+                <div className="mb-6">
+                  <span className="inline-block bg-lime-100 text-lime-800 text-sm font-medium px-3 py-1 rounded-full mb-4">
+                    {getCategoryName(selectedProduct.category)}
+                  </span>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                    {selectedProduct.name}
+                  </h2>
+                  <div className="text-2xl font-bold text-lime-500 mb-6">
+                    Ghs{selectedProduct.price}
+                  </div>
+                </div>
+
+                <div className="space-y-4 mb-8">
+                  {selectedProduct.size && (
+                    <div className="flex items-center">
+                      <svg
+                        className="w-5 h-5 text-gray-400 mr-3"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <div>
+                        <div className="font-medium text-gray-900">Size</div>
+                        <div className="text-gray-600">
+                          {selectedProduct.size}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="flex items-center">
+                    <svg
+                      className="w-5 h-5 text-gray-400 mr-3"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <div>
+                      <div className="font-medium text-gray-900">Category</div>
+                      <div className="text-gray-600">
+                        {getCategoryName(selectedProduct.category)}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center">
+                    <svg
+                      className="w-5 h-5 text-gray-400 mr-3"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <div>
+                      <div className="font-medium text-gray-900">Delivery</div>
+                      <div className="text-gray-600">
+                        {selectedProduct.delivery}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <button className="flex-1 bg-lime-500 hover:bg-lime-400 text-gray-700 font-semibold py-3.5 px-6 rounded-xl transition-colors duration-300 flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
+                    </svg>
+                    Order Now
+                  </button>
+                  <button
+                    onClick={() => setSelectedProduct(null)}
+                    className="px-6 py-3.5 border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       )}
+
       <Footer />
     </div>
   );

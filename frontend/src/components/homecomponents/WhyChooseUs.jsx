@@ -4,7 +4,7 @@ import * as Icons from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollReveal } from "../../animation/useScrollReveal";
 
-const AboutSection = () => {
+const AboutSection = ({content}) => {
   // Hooks for scroll animation
   const titleRef = useScrollReveal();
   const rightTextRef = useScrollReveal();
@@ -13,15 +13,12 @@ const AboutSection = () => {
   const secondTitleRef = useScrollReveal();
   const secondRightTextRef = useScrollReveal();
   const statsRef = useScrollReveal();
-
-  
-  
-  const { content, loading } = useContext(ContentContext);
+  const { loading } = useContext(ContentContext);
   const productRefs = Array.from({ length: content?.productsSection?.products?.length || 0 }, () => useScrollReveal());
 
   if (loading || !content) return null;
 
-  const data = content.whyChooseUs;
+  const data = content;
 
   const stats = [
     { label: "Live Poultry", value: "1,820" },

@@ -1,10 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { ContentContext } from "../context/ContentContext";
 import { useScrollReveal } from "../animation/useScrollReveal";
 import Footer from "../components/homecomponents/Footer";
+import Loader from "../components/Loader";
 
 const AboutSection = () => {
-  // Scroll reveal refs
+  const { aboutContent, loadingAbout, loadPageContent } = useContext(ContentContext);
+
+  // Load About page content when component mounts
+  useEffect(() => {
+    loadPageContent("about");
+  }, []);
+
+    // Scroll reveal refs
   const bannerRef = useScrollReveal();
   const storyTitleRef = useScrollReveal();
   const storyTextRef = useScrollReveal();
@@ -13,13 +21,20 @@ const AboutSection = () => {
   const productsRef = useScrollReveal();
   const problemSolutionRef = useScrollReveal();
 
-  const { content, loading } = useContext(ContentContext);
-  if (loading || !content) return null;
+  if (loadingAbout) return <Loader />;
 
-  const data = content.aboutPage;
+  const data = aboutContent?.aboutPage;
+  
+  if (!data)
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <p className="text-xl text-gray-600">Error loading About Page data.</p>
+      </div>
+    );
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-orange-50">
+
       {/* Banner */}
       <div
         className="relative w-full h-96 lg:h-[420px] bg-cover bg-center"
@@ -52,6 +67,7 @@ const AboutSection = () => {
             <div className="w-full max-w-5xl">
               <div className="mb-8 items-center">
                 <div className="flex flex-col md:flex-row gap-8 items-center">
+
                   {/* Left Column */}
                   <div className="md:w-1/2">
                     <div className="inline-flex items-center px-4 py-2 rounded-full bg-amber-100 text-amber-800 font-medium mb-6">
@@ -74,9 +90,9 @@ const AboutSection = () => {
                     <p className="text-gray-600 mb-4">
                       {data.story.paragraphs[0]}
                     </p>
-
                     <p className="text-gray-600">{data.story.paragraphs[1]}</p>
                   </div>
+
                 </div>
               </div>
             </div>
@@ -88,6 +104,7 @@ const AboutSection = () => {
       <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
+
             {/* Mission */}
             <div
               ref={missionRef}
@@ -96,17 +113,13 @@ const AboutSection = () => {
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 {data.mission.title}
               </h2>
-
               <p className="text-gray-700 leading-relaxed mb-6">
                 {data.mission.description}
               </p>
 
               <ul className="space-y-3">
                 {data.mission.points.map((point, idx) => (
-                  <li
-                    key={idx}
-                    className="text-gray-700 flex items-start gap-2"
-                  >
+                  <li key={idx} className="text-gray-700 flex items-start gap-2">
                     <span className="text-[#f4b63c] font-bold">•</span>
                     {point}
                   </li>
@@ -122,17 +135,13 @@ const AboutSection = () => {
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 {data.vision.title}
               </h2>
-
               <p className="text-gray-700 leading-relaxed mb-6">
                 {data.vision.description}
               </p>
 
               <ul className="space-y-3">
                 {data.vision.points.map((point, idx) => (
-                  <li
-                    key={idx}
-                    className="text-gray-700 flex items-start gap-2"
-                  >
+                  <li key={idx} className="text-gray-700 flex items-start gap-2">
                     <span className="text-[#f4b63c] font-bold">•</span>
                     {point}
                   </li>
@@ -148,19 +157,15 @@ const AboutSection = () => {
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 {data.values_section.title}
               </h2>
-
               <p className="text-gray-700 leading-relaxed mb-6">
                 {data.values_section.description}
               </p>
 
               <ul className="space-y-3">
-                {data.values_section.products.map((point, idx) => (
-                  <li
-                    key={idx}
-                    className="text-gray-700 flex items-start gap-2"
-                  >
+                {data.values_section.products.map((p, idx) => (
+                  <li key={idx} className="text-gray-700 flex items-start gap-2">
                     <span className="text-[#f4b63c] font-bold">•</span>
-                    {point}
+                    {p}
                   </li>
                 ))}
               </ul>
@@ -172,19 +177,16 @@ const AboutSection = () => {
               className="scroll-reveal opacity-0 translate-y-10 bg-gradient-to-br from-orange-50 to-amber-50 rounded-3xl p-8"
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Problem</h2>
-
               <p className="text-gray-700 leading-relaxed mb-6">
                 {data.values_section.problem}
               </p>
 
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Solution
-              </h2>
-
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Solution</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
                 {data.values_section.solution}
               </p>
             </div>
+
           </div>
         </div>
       </section>

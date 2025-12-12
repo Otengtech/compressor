@@ -38,19 +38,17 @@ const FAQPage = () => {
 
   return (
     <>
+      {/* Header */}
+      <div className="bg-amber-500 text-white py-16 text-center shadow-lg">
+        <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+          FFrequently Asked Questions
+        </h1>
+        <p className="text-lg text-white">
+          Find answers to common questions about our products and services.
+        </p>
+      </div>
       <section className="py-20 bg-gradient-to-b from-white to-gray-100">
         <div className="container mx-auto px-5 max-w-4xl">
-          {/* TITLE */}
-          {/* Header */}
-          <div className="bg-amber-500 text-white py-16 text-center shadow-lg">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              FREQUENTLY ASKED QUESTIONS
-            </h1>
-            <p className="text-lg text-gray-600">
-              Find answers to common questions about our products and services.
-            </p>
-          </div>
-
           {/* FAQ LIST */}
           <div
             ref={sectionRef}
