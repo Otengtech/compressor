@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import Loader from "../components/Loader";
 import { ContentContext } from "../context/ContentContext";
+
 import {
   MapPin,
   Phone,
@@ -8,9 +9,6 @@ import {
   Facebook,
   Instagram,
   Linkedin,
-  ArrowRight,
-  User,
-  Send,
   Clock,
 } from "lucide-react";
 import Footer from "../components/homecomponents/Footer";
@@ -20,24 +18,33 @@ const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
     message: "",
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const {contactContent, loadingContact, loadPageContent} = useContext(ContentContext);
 
-  useEffect(()=>{
-    loadPageContent("contact");
-  }, [])
+  const [status, setStatus] = useState({
+    loading: false,
+    success: null,
+    error: null,
+  });
 
+  // Use Vite environment variable for API URL
+  const API_URL = import.meta.env.VITE_API_URL;
+
+  const { contactContent, loadingContact, loadPageContent } =
+    useContext(ContentContext);
+
+  // Scroll reveal refs
   const bannerRef = useScrollReveal();
   const leftRef = useScrollReveal();
   const formRef = useScrollReveal();
 
+  useEffect(() => {
+    loadPageContent("contact");
+  }, []);
+
   if (loadingContact) return <Loader />;
 
   const data = contactContent?.contactPage;
-  
   if (!data)
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -49,14 +56,37 @@ const ContactPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setFormData({ name: "", email: "", phone: "", message: "" });
-      setIsSubmitted(false);
-    }, 3000);
+    setStatus({ loading: true, success: null, error: null });
+
+    try {
+      const res = await fetch(`${API_URL}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(`Server error (${res.status}): ${text}`);
+      }
+
+      const data = await res.json();
+      setStatus({
+        loading: false,
+        success: data.message || "Message sent successfully!",
+        error: null,
+      });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error(err);
+      setStatus({
+        loading: false,
+        success: null,
+        error: "Failed to send message. Please try again later.",
+      });
+    }
   };
 
   return (
@@ -80,9 +110,16 @@ const ContactPage = () => {
       <section className="relative py-10">
         <div className="max-w-7xl mx-auto px-4 lg:px-20 grid lg:grid-cols-2 gap-12">
           {/* Left Side */}
-          <div ref={leftRef} className="scroll-reveal opacity-0 translate-y-10 space-y-6">
-            <h2 className="text-xl font-bold text-gray-700">{data.leftContent.heading}</h2>
-            <h2 className="text-3xl font-bold text-lime-400">NAYA SUCCESS AXIS</h2>
+          <div
+            ref={leftRef}
+            className="scroll-reveal opacity-0 translate-y-10 space-y-6"
+          >
+            <h2 className="text-xl font-bold text-gray-700">
+              {data.leftContent.heading}
+            </h2>
+            <h2 className="text-3xl font-bold text-lime-400">
+              NAYA SUCCESS AXIS
+            </h2>
             <p className="text-gray-700">{data.leftContent.description}</p>
 
             <div className="space-y-4">
@@ -101,19 +138,12 @@ const ContactPage = () => {
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-semibold text-gray-900">Products:</h3>
-              <ul className="list-disc list-inside text-gray-700">
-                {data.leftContent.products.map((item, idx) => (
-                  <li key={idx}>{item}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-2">
               <h3 className="font-semibold text-gray-900">Contacts:</h3>
               <p>
                 <span className="text-gray-900 font-medium">Phone:</span>{" "}
-                <span className="text-gray-700">{data.contacts.phoneNumbers.join(" / ")}</span>
+                <span className="text-gray-700">
+                  {data.contacts.phoneNumbers.join(" / ")}
+                </span>
               </p>
               <p>
                 <span className="text-gray-900 font-medium">WhatsApp:</span>{" "}
@@ -135,61 +165,71 @@ const ContactPage = () => {
           </div>
 
           {/* Right Form */}
-          <div ref={formRef} className="scroll-reveal opacity-0 translate-y-10 bg-white rounded-3xl p-8">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">{data.rightForm.title}</h2>
-            {isSubmitted ? (
-              <div className="text-center py-12">
-                <Send className="w-20 h-20 text-lime-400 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Sent Successfully!</h3>
-                <p className="text-gray-600">
-                  Thank you for contacting us. We'll get back to you within 24 hours.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {data.rightForm.fields.map((field, idx) => (
-                  <div key={idx}>
-                    <label className="block text-gray-700 mb-2 font-medium">
-                      {field.label} {field.required && "*"}
-                    </label>
-                    {field.type === "textarea" ? (
-                      <textarea
-                        name={field.name}
-                        required={field.required}
-                        rows="5"
-                        className="w-full px-4 py-3 rounded-sm border border-gray-400 focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all"
-                        placeholder={`Enter ${field.label}`}
-                        value={formData[field.name]}
-                        onChange={handleChange}
-                      />
-                    ) : (
-                      <div className="relative">
-                        <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-lime-400" />
-                        <input
-                          type={field.type}
-                          name={field.name}
-                          required={field.required}
-                          className="w-full pl-12 pr-4 py-3 rounded-sm border border-gray-400 focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all"
-                          placeholder={`Enter ${field.label}`}
-                          value={formData[field.name]}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    )}
-                  </div>
-                ))}
-                <button
-                  type="submit"
-                  className="w-full bg-lime-500 text-white py-4 rounded-sm font-semibold transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl flex items-center justify-center"
-                >
-                  <span className="flex items-center gap-2">
-                    {data.rightForm.buttonText}
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </span>
-                </button>
-              </form>
+          <form
+            onSubmit={handleSubmit}
+            ref={formRef}
+            className="scroll-reveal opacity-0 translate-y-10 bg-white rounded-3xl p-8 space-y-6"
+          >
+            <div>
+              <label className="block text-sm text-gray-700 mb-2">
+                Full Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full bg-transparent border border-lime-400 rounded-full px-4 py-3 text-sm focus:border-lime-400 outline-none transition-all text-gray-700 placeholder-gray-500"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm text-gray-700 mb-2">
+                Email Address
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full bg-transparent border border-lime-400 rounded-full px-4 py-3 text-sm focus:border-lime-400 outline-none transition-all text-gray-700 placeholder-gray-500"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm text-gray-700 mb-2">
+                Message
+              </label>
+              <textarea
+                name="message"
+                placeholder="Write your message..."
+                rows={4}
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full bg-transparent border border-lime-400 rounded-2xl px-4 py-3 text-sm focus:border-lime-400 outline-none transition-all text-gray-700 placeholder-gray-500 resize-none"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-green-500 to-lime-400 text-black font-semibold py-3 rounded-full shadow-lg transition-all disabled:opacity-60"
+              disabled={status.loading}
+            >
+              {status.loading ? "Sending..." : "Send Message"}
+            </button>
+
+            {status.success && (
+              <p className="text-green-400 text-center">{status.success}</p>
             )}
-          </div>
+            {status.error && (
+              <p className="text-red-500 text-center">{status.error}</p>
+            )}
+          </form>
         </div>
       </section>
 
