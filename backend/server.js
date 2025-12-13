@@ -9,12 +9,26 @@ dotenv.config();
 const app = express();
 const PORT = 5000;
 // const clientUrl = "http://localhost:5173"; // 
-const clientUrl = "https://portryfarm.vercel.app";
+const allowedOrigins = [
+  "http://localhost:5174",
+  "http://localhost:3000",
+  "https://portryfarm.vercel.app"
+];
 
 app.use(cors({
-  origin: clientUrl,
-  credentials: true,
+  origin(origin, callback) {
+    // Allow server-to-server, Postman, curl
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error("Not allowed by CORS"));
+  },
+  credentials: true
 }));
+
 
 // Get absolute path of backend folder
 const __dirname = path.resolve();
